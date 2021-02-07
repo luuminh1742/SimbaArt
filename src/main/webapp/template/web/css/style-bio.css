@@ -1,0 +1,10 @@
+.bio-content{
+    padding: 20px;
+    display: flex;
+}
+
+#avata-admin{
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
