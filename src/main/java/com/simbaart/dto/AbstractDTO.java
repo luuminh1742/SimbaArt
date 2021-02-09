@@ -15,6 +15,7 @@ public class AbstractDTO<T> {
 	private String sortName;
 	private String sortBy;
 	private String type;
+	private Long[] ids;
 	
 	public Integer getPage() {
 		return page;
@@ -86,6 +87,14 @@ public class AbstractDTO<T> {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public Long[] getIds() {
+		return ids;
+	}
+
+	public void setIds(Long[] ids) {
+		this.ids = ids;
 	}
 
 }

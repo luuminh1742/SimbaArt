@@ -10,6 +10,8 @@ public class NewArtDTO extends AbstractDTO<NewArtDTO> {
 	private String content;
 	private Timestamp createdDate;
 	private boolean status;
+	private String base64;
+
 	public String getBanner() {
 		return banner;
 	}
@@ -56,5 +58,13 @@ public class NewArtDTO extends AbstractDTO<NewArtDTO> {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public String getBase64() {
+		return base64;
+	}
+
+	public void setBase64(String base64) {
+		this.base64 = base64;
 	}
 }

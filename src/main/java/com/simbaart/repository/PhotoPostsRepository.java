@@ -9,5 +9,5 @@ import com.simbaart.entity.PhotoPostsEntity;
 
 public interface PhotoPostsRepository extends JpaRepository<PhotoPostsEntity, Long>{
 
-	public List<PhotoPostsEntity> findAllByOrderByIdDesc(Pageable pageable);
+	List<PhotoPostsEntity> findAllByOrderByIdDesc(Pageable pageable);
 }

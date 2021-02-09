@@ -53,9 +53,10 @@
 					class="centerBlock">
 			</div>
 			<div class="menu-right">
-				<a href="#" class="text-danger">ALL</a>
+				<a href='<c:url value="/home?page=1"/>' class="text-danger">ALL</a>
 				<c:forEach var="item" items="${photoCategory.listResult}">
-					 | <a href="#" class="text-light">${item.name}</a>
+					 | <a href='<c:url value="/home/category?code=${item.code}&page=1"/>' 
+					 class="text-light">${item.name}</a>
 				</c:forEach>
 			</div>
 		</div>
@@ -68,89 +69,48 @@
 	<div class="content">
 
 		<div class="ct">
-			<a data-fancybox="gallery"
-				href='<c:url value="/template/web/vendor/lightbox/img/1.png"/>'
-				data-caption="Caption for single image"> <img
-				src='<c:url value="/template/web/vendor/lightbox/img/1.png"/>'
-				alt="" class="image">
-
-			</a> <a data-fancybox="gallery"
-				href='<c:url value="/template/web/vendor/lightbox/img/2.png"/>'>
-				<img src='<c:url value="/template/web/vendor/lightbox/img/2.png"/>'
-				alt="" class="image">
-
-			</a> <a data-fancybox="gallery"
-				href='<c:url value="/template/web/vendor/lightbox/img/3.png"/>'>
-				<img src='<c:url value="/template/web/vendor/lightbox/img/3.png"/>'
-				alt="" class="image">
-
-			</a> <a data-fancybox="gallery"
-				href='<c:url value="/template/web/img/nouvelle_image__587724.jpg"/>'>
-				<img
-				src='<c:url value="/template/web/img/nouvelle_image__587724.jpg"/>'
-				alt="" class="image">
-
-			</a> <a data-fancybox="gallery" href="http://placehold.it/320x320"> <img
-				src="http://placehold.it/320x320" alt="" class="image">
-
-			</a> <a data-fancybox="gallery"
-				href='<c:url value="/template/web/img/img-demo.jpg"/>'> <img
-				src='<c:url value="/template/web/img/img-demo.jpg"/>' alt=""
-				class="image">
-
-			</a> <a data-fancybox="gallery"
-				href='<c:url value="/template/web/vendor/lightbox/img/1.png"/>'
-				data-caption="Caption for single image"> <img
-				src='<c:url value="/template/web/vendor/lightbox/img/1.png"/>'
-				alt="" class="image">
-
-			</a> <a data-fancybox="gallery"
-				href='<c:url value="/template/web/vendor/lightbox/img/2.png"/>'>
-				<img src='<c:url value="/template/web/vendor/lightbox/img/2.png"/>'
-				alt="" class="image">
-
-			</a> <a data-fancybox="gallery"
-				href='<c:url value="/template/web/vendor/lightbox/img/3.png"/>'>
-				<img src='<c:url value="/template/web/vendor/lightbox/img/3.png"/>'
-				alt="" class="image">
-
-			</a> <a data-fancybox="gallery"
-				href='<c:url value="/template/web/img/nouvelle_image__587724.jpg"/>'>
-				<img
-				src='<c:url value="/template/web/img/nouvelle_image__587724.jpg"/>'
-				alt="" class="image">
-
-			</a>
-
-
+			
+				<c:forEach var="item" items="${model.listResult}">
+					<a data-fancybox="gallery"
+						href='<c:url value="/images/${item.image}"/>'
+						data-caption="${item.description}"> <img
+						src='<c:url value="/images/${item.image}"/>' alt=""
+						class="image">
+					</a>
+				</c:forEach>
+				<br>
+				
 		</div>
 
 	</div>
 
 	<!-- .\Content -->
+	<form action="<c:url value='/home'/>" id="formSubmit" method="get" style="margin-top:50px;">
+		<ul class="pagination" id="pagination" 
+			style="margin: 0px auto !important;
+    				width: fit-content;"></ul>
+		<input type="hidden" value="" id="page" name="page" /> 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	</form>
 	<script
 		src='<c:url value="/template/web/vendor/lightbox/js/script.js"/>'></script>
 	<script>
+		var totalPages = ${model.totalPage};
+		var currentPage = ${model.page};
+		$(function() {
+			window.pagObj = $('#pagination').twbsPagination({
+				totalPages : totalPages,
+				visiblePages : 5,
+				startPage : currentPage,
+				onPageClick : function(event, page) {
+					if (currentPage != page) {
+						$('#page').val(page);
+						$('#formSubmit').submit();
+					}
+				}
+			});
+		});
+
 		$(function() {
 			mosaicGrid('.content', 'img');
 		});

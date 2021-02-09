@@ -17,7 +17,7 @@ public class BioEntity extends BaseEntity{
 	@Column(name = "title")
 	private String title;
 	
-	@Column(name = "content")
+	@Column(name = "content", columnDefinition = "TEXT")
 	private String content;
 	
 	@CreatedDate

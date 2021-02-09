@@ -61,7 +61,7 @@
 							<c:forEach var="item" items="${model.listResult}">
 								<tr>
 									<td>${item.title}</td>
-									<td><img src='<c:url value="/photoposts/${item.image}"/>'
+									<td><img src='<c:url value="/images/${item.image}"/>'
 										width="100px" height="100px"></td>
 									<td>${item.image}</td>
 									<td>${item.description}</td>
@@ -82,7 +82,6 @@
 					</table>
 					<ul class="pagination" id="pagination"></ul>
 					<input type="hidden" value="" id="page" name="page"/>
-					<input type="hidden" value="" id="limit" name="limit"/>
 				</form>
 			</div>
 		</div>
@@ -99,7 +98,6 @@
 	            onPageClick: function (event, page) {
 	            	if (currentPage != page) {
 	            		$('#page').val(page);
-	            		$('#limit').val(10);
 						$('#formSubmit').submit();
 					}
 	            }

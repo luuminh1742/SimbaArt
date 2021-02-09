@@ -14,6 +14,9 @@ public class BlogCategoryEntity extends BaseEntity{
 	
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "code")
+	private String code;
 
 	@OneToMany(mappedBy = "blogCategoryEntity")
 	private List<BlogPostsEntity> listBlogPosts = new ArrayList<>();
@@ -32,6 +35,14 @@ public class BlogCategoryEntity extends BaseEntity{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 }

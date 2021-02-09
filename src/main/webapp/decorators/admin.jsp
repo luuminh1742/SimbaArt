@@ -38,8 +38,9 @@
 	href='<c:url value="/template/admin/plugins/summernote/summernote-bs4.min.css"/>'>
 
 <script src='<c:url value="/template/admin/ajax/jquery.min.js"/>'></script>
+<script src="<c:url value='/template/ckeditor/video/dislogs/video.js' />"></script>
 <script src="<c:url value='/template/ckeditor/ckeditor.js' />"></script>
-
+<script src='<c:url value="/template/ckfinder/ckfinder.js"/>'></script>
 <!--  phân trang  -->
 <script
 	src='<c:url value="/template/admin/plugins/jquery/jquery.min.js"/>'></script>

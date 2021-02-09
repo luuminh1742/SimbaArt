@@ -48,6 +48,7 @@
 					<thead>
 						<tr>
 							<th>Category name</th>
+							<th>Code</th>
 							<th>Manipulation</th>
 						</tr>
 					</thead>
@@ -55,6 +56,7 @@
 						<c:forEach var="item" items="${model.listResult}">
 							<tr>
 								<td>${item.name}</td>
+								<td>${item.code}</td>
 								<td>
 									<button type="button" class="btn btn-sm btn-primary btn-edit"
 										data-toggle="modal" data-target="#dialog1"

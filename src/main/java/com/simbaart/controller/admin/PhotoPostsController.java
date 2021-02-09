@@ -15,6 +15,7 @@ import com.simbaart.dto.PhotoCategoryDTO;
 import com.simbaart.dto.PhotoPostsDTO;
 import com.simbaart.service.IPhotoCategoryService;
 import com.simbaart.service.IPhotoPostsService;
+import com.simbaart.utils.ReadAllFileNameInFolderUtil;
 
 @Controller(value = "photoPostsControllerOfAdmin")
 public class PhotoPostsController {
@@ -23,21 +24,22 @@ public class PhotoPostsController {
 	private IPhotoCategoryService photoCategoryService;
 	@Autowired
 	private IPhotoPostsService photoPostsService;
+	@Autowired
+	private ReadAllFileNameInFolderUtil readFileName;
 	
 	
 	@RequestMapping(value = "/admin/photo/posts/list", method = RequestMethod.GET)
-	public ModelAndView showList(@RequestParam("page") int page, 
-			 @RequestParam("limit") int limit) {
+	public ModelAndView showList(@RequestParam("page") int page) {
 		PhotoPostsDTO model = new PhotoPostsDTO();
 		model.setPage(page);
-		model.setLimit(limit);
+		model.setLimit(10);
 		ModelAndView mav = new ModelAndView("admin/photo/posts/list");
-		Pageable pageable = new PageRequest(page-1, limit);
+		Pageable pageable = new PageRequest(page-1, model.getLimit());
 		model.setListResult(photoPostsService.findAll(pageable));
 		model.setTotalItem(photoPostsService.getTotalItem());
 		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
-		//model.setListResult(photoPostsService.findAll());
 		mav.addObject("model", model);
+		mav.addObject("checkSidebar",2);
 		return mav;
 	}
 
@@ -53,6 +55,12 @@ public class PhotoPostsController {
 		List<PhotoCategoryDTO> photoCategories = photoCategoryService.findAll();
 
 		mav.addObject("photoCategories", photoCategories);
+		
+		List<String> listFileName = readFileName.results("images");
+		mav.addObject("listFileName", listFileName);
+		
+		
+		mav.addObject("checkSidebar",2);
 		return mav;
 	}
 }

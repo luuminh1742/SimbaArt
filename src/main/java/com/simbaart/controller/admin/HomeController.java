@@ -10,6 +10,10 @@ public class HomeController {
 	@RequestMapping(value = "/admin/home", method = RequestMethod.GET)
 	   public ModelAndView homePage() {
 	      ModelAndView mav = new ModelAndView("admin/home");
+	      
+	      
+	      // kiểm tra menu nằm ở đâu
+	      mav.addObject("checkSidebar",0);
 	      return mav;
 	   }
 }

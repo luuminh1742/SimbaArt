@@ -24,7 +24,7 @@ public class PhotoPostsAPI {
 	public PhotoPostsDTO createPhotoPosts(@RequestBody PhotoPostsDTO dto) {
 		if(!dto.getBase64().equals("")) {
 			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
-			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/photoposts/"+dto.getImage());
+			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getImage());
 		}
 		return photoPostsService.save(dto);
 	}
@@ -33,7 +33,7 @@ public class PhotoPostsAPI {
 	public PhotoPostsDTO updatePhotoPosts(@RequestBody PhotoPostsDTO dto) {
 		if(!dto.getBase64().equals("")) {
 			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
-			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/photoposts/"+dto.getImage());
+			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getImage());
 		}
 		return photoPostsService.save(dto);
 	}

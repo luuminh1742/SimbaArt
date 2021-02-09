@@ -9,6 +9,7 @@ import com.simbaart.dto.PhotoPostsDTO;
 public interface IPhotoPostsService {
 	PhotoPostsDTO findById(Long id);
 	List<PhotoPostsDTO> findAll(Pageable pageable);
+	List<PhotoPostsDTO> findAllByCode(String code,Pageable pageable);
 	PhotoPostsDTO save(PhotoPostsDTO dto);
 	void delete(Long id);
 	int getTotalItem();

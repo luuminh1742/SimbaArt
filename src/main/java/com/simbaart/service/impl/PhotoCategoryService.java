@@ -37,7 +37,7 @@ public class PhotoCategoryService implements IPhotoCategoryService{
 
 	@Override
 	public List<PhotoCategoryDTO> findAll() {
-		List<PhotoCategoryEntity> entitis = photoCategoryRepository.findAll();
+		List<PhotoCategoryEntity> entitis = photoCategoryRepository.findAllByOrderByIdDesc();
 		List<PhotoCategoryDTO> models = new ArrayList<>();
 		for (PhotoCategoryEntity photoCategoryEntity : entitis) {
 			PhotoCategoryDTO photoCategoryDTO = photoCategoryConverter.toDto(photoCategoryEntity);

@@ -1,9 +1,10 @@
 package com.simbaart.dto;
 
 public class UserDTO extends AbstractDTO<UserDTO> {
-	private String username;
+	private String userName;
 	private String password;
 	private String fullName;
+	private String avatar;
 	private String phone;
 	private String email;
 	private String youtube;
@@ -13,13 +14,51 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 	private String pinterest;
 	private String shoppe;
 	private String etsy;
+	private String bioContent;
+	private String bannerBelow;
+	private String linkBanner;
+	private String base64;
+	private String logo;
+	private Long roleId;
+	private boolean status;
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getBase64() {
+		return base64;
+	}
+
+	public void setBase64(String base64) {
+		this.base64 = base64;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
+	public String getBannerBelow() {
+		return bannerBelow;
+	}
+
+	public void setBannerBelow(String bannerBelow) {
+		this.bannerBelow = bannerBelow;
+	}
 
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 
 	public String getPassword() {
@@ -108,6 +147,38 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 
 	public void setEtsy(String etsy) {
 		this.etsy = etsy;
+	}
+
+	public String getBioContent() {
+		return bioContent;
+	}
+
+	public void setBioContent(String bioContent) {
+		this.bioContent = bioContent;
+	}
+
+	public String getLinkBanner() {
+		return linkBanner;
+	}
+
+	public void setLinkBanner(String linkBanner) {
+		this.linkBanner = linkBanner;
+	}
+
+	public Long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 }

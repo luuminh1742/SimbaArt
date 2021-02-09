@@ -33,7 +33,6 @@
 		<property name="suffix" value=".jsp" />
 
 	</bean>
-	
 	<mvc:resources mapping="/template/**" location="/template/" />
-	<mvc:resources mapping="/photoposts/**" location="file:c://usr/var/photoposts/" />
+	<mvc:resources mapping="/images/**" location="file:c://usr/var/folder/images/" />
 </beans>

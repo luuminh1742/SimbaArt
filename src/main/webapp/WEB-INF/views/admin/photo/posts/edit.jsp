@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api/photo/editposts" />
-<c:url var="PhotoPostsURL" value="/admin/photo/posts/list?page=1&limit=10" />
+<c:url var="PhotoPostsURL" value="/admin/photo/posts/list?page=1" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,10 +60,6 @@
 							category:</label>
 						<div class="col-sm-9">
 							<select id="photoCategoryId" class="form-control">
-								<%-- <option value="" label="-- Photo category --" />
-								<c:forEach var="item" items="${photoCategories}">
-									<option value="${item.id}">${item.name}</option>
-								</c:forEach> --%>
 
 								<c:if test="${empty model.photoCategoryId}">
 									<option value="" label="-- Photo category --" />
@@ -98,13 +94,18 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label no-padding-right">Image</label>
 						<div class="col-sm-9">
+							<button type="button" data-toggle="modal"data-target="#dialog1">
+							Select my image</button>
+						</div>
+						<br>
+						<div class="col-sm-9">
 							<input type="file" id="image" name="image" style="max-width: inherit;"
 							accept="image/png, image/jpeg, image/jpg"  onchange="readURL(this);"/>
 						</div>
 					</div>
 					<c:if test="${not empty model.id}">
 						<div class="form-group col-sm-12">
-							<img id="blah" src='<c:url value="/photoposts/${model.image}"/>' alt="your image" 
+							<img id="blah" src='<c:url value="/images/${model.image}"/>' alt="your image" 
 							style="max-width: inherit;border: 0.1px solid black;">
 						</div>
 					</c:if>
@@ -135,9 +136,58 @@
 			</div>
 		</div>
 	</section>
+	
+	
+	
+	
+	<div class="modal fade" id="dialog1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" style="width: 900px;">
+			<div class="modal-content" style="width: 900px;">
+
+				<div class="modal-header bg-light text-dark">
+					<h5 class="modal-title" id="title-modal">List Image</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				<div class="modal-body" style="width: 900px;">
+					<form id="formTestCategory">
+						<div>
+							<c:forEach var="image" items="${listFileName}">
+								<button type="button" title='${image}'
+								onclick="clickChooseImage('${image}')"
+								data-dismiss="modal">
+									<img src='<c:url value="/images/${image}"/>'
+										width="110px" height="100px">
+								</button>
+									
+									
+							</c:forEach>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-warning"
+								data-dismiss="modal">Cancel</button>
+							
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
 
 	<script>
 	
+	
+	function clickChooseImage(img){
+		$('#img').val(img);
+		$('#blah').attr('src', '<c:url value="/images/'+img+'"/>');
+	}
 	
 	
 	function readURL(input) {
@@ -178,7 +228,7 @@
 			} else {
 				if (id == "") {
 					data["base64"] = '';
-					data["image"] = '';
+					data["image"] = $('#img').val();
 					addPhotoPosts(data);
 				} else {
 					data["base64"] = '';

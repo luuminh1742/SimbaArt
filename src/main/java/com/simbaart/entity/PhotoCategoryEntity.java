@@ -15,6 +15,9 @@ public class PhotoCategoryEntity extends BaseEntity{
 	@Column(name="name")
 	private String name;
 	
+	@Column(name="code")
+	private String code;
+	
 	@OneToMany(mappedBy = "photoCategoryEntity")
 	private List<PhotoPostsEntity> listPhotoPosts = new ArrayList<>();
 
@@ -33,4 +36,13 @@ public class PhotoCategoryEntity extends BaseEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+	
 }

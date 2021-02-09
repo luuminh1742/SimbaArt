@@ -34,12 +34,10 @@ public class PhotoPostsService implements IPhotoPostsService{
 
 	@Override
 	public List<PhotoPostsDTO> findAll(Pageable pageable) {
-		List<PhotoPostsEntity> entitis = photoPostsRepository.findAllByOrderByIdDesc(pageable);
 		List<PhotoPostsDTO> models = new ArrayList<>();
-		for (PhotoPostsEntity photoPostsEntity : entitis) {
-			PhotoPostsDTO photoPostsDTO = photoPostsConverter.toDto(photoPostsEntity);
-			models.add(photoPostsDTO);
-		}
+		photoPostsRepository.findAllByOrderByIdDesc(pageable).forEach(entity->{
+			models.add(photoPostsConverter.toDto(entity));
+		});
 		return models;
 	}
 
@@ -68,6 +66,19 @@ public class PhotoPostsService implements IPhotoPostsService{
 	@Override
 	public int getTotalItem() {
 		return (int) photoPostsRepository.count();
+	}
+
+	@Override
+	public List<PhotoPostsDTO> findAllByCode(String code, Pageable pageable) {
+//		PhotoCategoryEntity photoCategoryEntity = photoCategoryRepository.findOneByCode(code);
+//		List<PhotoPostsEntity> entitis = photoPostsRepository.findAllByPhotocategoryidAndOrderByIdDesc(photoCategoryEntity.getId());
+//		List<PhotoPostsDTO> models = new ArrayList<>();
+//		for (PhotoPostsEntity photoPostsEntity : entitis) {
+//			PhotoPostsDTO photoPostsDTO = photoPostsConverter.toDto(photoPostsEntity);
+//			models.add(photoPostsDTO);
+//		}
+//		return models;
+		return null;
 	}
 
 }

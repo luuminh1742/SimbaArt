@@ -19,7 +19,17 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
+
+
 	<dependencies>
+
+		<!-- spring aspects -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -190,7 +200,11 @@
 
 
 
+
 	</dependencies>
+
+
+
 
 	<build>
 		<plugins>

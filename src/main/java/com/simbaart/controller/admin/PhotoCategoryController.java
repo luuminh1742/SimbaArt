@@ -21,6 +21,7 @@ public class PhotoCategoryController {
 		ModelAndView mav = new ModelAndView("admin/photo/category");
 		model.setListResult(photoCategoryService.findAll());
 		mav.addObject("model", model);
+		mav.addObject("checkSidebar",1);
 		return mav;
 	}
 }
