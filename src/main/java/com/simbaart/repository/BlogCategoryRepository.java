@@ -7,6 +7,6 @@ import com.simbaart.entity.BlogCategoryEntity;
 public interface BlogCategoryRepository extends JpaRepository<BlogCategoryEntity, Long>{
 	
 	
-
+	BlogCategoryEntity findOneByCode(String code);
 	
 }

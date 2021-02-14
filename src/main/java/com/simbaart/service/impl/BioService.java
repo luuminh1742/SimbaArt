@@ -2,6 +2,8 @@ package com.simbaart.service.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,10 +36,16 @@ public class BioService implements IBioService{
 	}
 
 	@Override
-	public BioDTO update(BioDTO dto) {
+	@Transactional
+	public BioDTO save(BioDTO dto) {
 		BioEntity bioEntity = new BioEntity();
-		BioEntity oldBio = bioRepository.findOne(dto.getId());
-		bioEntity = bioConverter.toEntity(oldBio, dto);
+		if(dto.getId() != null) {
+			BioEntity oldBio = bioRepository.findOne(dto.getId());
+			bioEntity = bioConverter.toEntity(oldBio, dto);
+		}else {
+			bioEntity = bioConverter.toEntity(dto);
+		}
+		
 		return bioConverter.toDto(bioRepository.save(bioEntity));
 	}
 

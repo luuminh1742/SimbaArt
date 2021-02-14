@@ -9,60 +9,7 @@
 
 </head>
 <body>
-	<div class="centerBlock" style="padding: 5px;">
-		<div class="row text-light menu-left">
-			<div class="pull-right"
-				style="width: 40%; padding-top: 64px; padding-bottom: 64px; padding-left: 15px; padding-right: 15px;">
-				<div class="centerBlock menu-l-top">
-					<a href="index.html" class="text-danger">HOME</a> | <a
-						href="bio.html" class="text-light">BIO</a> | <a href="blog.html"
-						class="text-light">BLOG</a> | <a href="contact.html"
-						class="text-light">CONTACT</a> | <a href="#" class="text-light">NEW
-						ART</a>
-				</div>
-				<div class="centerBlock" id="social-network">
-					<!--youtube-->
-					<a href="https://www.youtube.com/" target="_blank"> <img
-						src='<c:url value="/template/web/icon/youtube.png"/>'>
-					</a>
-					<!--instagram-->
-					<a href="https://www.instagram.com/" target="_blank"> <img
-						src='<c:url value="/template/web/icon/insta.png"/>'>
-					</a>
-					<!--twitter-->
-					<a href="https://www.twitter.com/" target="_blank"> <img
-						src='<c:url value="/template/web/icon/Twitter.png"/>'>
-					</a>
-					<!--facebook-->
-					<a href="https://www.facebook.com/" target="_blank"> <img
-						src='<c:url value="/template/web/icon/fb.png"/>'>
-					</a> <a href="https://www.pinterest.com/" target="_blank"> <img
-						src='<c:url value="/template/web/icon/prin.png"/>'>
-					</a>
-					<!--shop-->
-					<a href="https://shopee.vn/" target="_blank"> <img
-						src='<c:url value="/template/web/icon/shoppe.png"/>'>
-					</a> <a href="https://www.etsy.com/" target="_blank"> <img
-						src='<c:url value="/template/web/icon/etsy.png"/>'>
-					</a>
-				</div>
-
-			</div>
-			<div class="logo-center">
-				<img src='<c:url value="/template/web/icon/logo.png"/>'
-					class="centerBlock">
-			</div>
-			<div class="menu-right">
-				<a href='<c:url value="/home?page=1"/>' class="text-danger">ALL</a>
-				<c:forEach var="item" items="${photoCategory.listResult}">
-					 | <a href='<c:url value="/home/category?code=${item.code}&page=1"/>' 
-					 class="text-light">${item.name}</a>
-				</c:forEach>
-			</div>
-		</div>
-	</div>
-
-	<!-- .\header -->
+	
 
 	<!-- Content -->
 

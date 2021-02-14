@@ -15,16 +15,6 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src='<c:url value="/template/login/images/img-01.png"/>' alt="IMG">
 				</div>
-					<c:if test="${param.incorrectAccount != null}">
-						<div class="alert alert-danger">	
-								Username or password incorrect
-						</div>
-					</c:if>
-					<c:if test="${param.accessDenied != null}">
-						<div class="alert alert-danger">	
-								you Not authorize
-						</div>
-					</c:if>
 				<form class="login100-form validate-form" action="j_spring_security_check" id="formLogin" method="post">
 					<span class="login100-form-title">
 						Login
@@ -60,7 +50,16 @@
 							Username / Password?
 						</a>
 					</div>
-
+					<c:if test="${param.incorrectAccount != null}">
+						<div class="alert alert-danger">	
+								Username or password incorrect
+						</div>
+					</c:if>
+					<c:if test="${param.accessDenied != null}">
+						<div class="alert alert-danger">	
+								you Not authorize
+						</div>
+					</c:if>
 					<div class="text-center p-t-136">
 						<a class="txt2" href="#">
 							Create your Account

@@ -8,4 +8,5 @@ public interface IPhotoCategoryService {
 	PhotoCategoryDTO save(PhotoCategoryDTO dto);
 	List<PhotoCategoryDTO> findAll();
 	void delete(Long id);
+	PhotoCategoryDTO findOneByCode(String code);
 }

@@ -13,6 +13,6 @@
 		<class>com.simbaart.entity.BlogCategoryEntity</class>
 		<class>com.simbaart.entity.BlogPostsEntity</class>
 		<class>com.simbaart.entity.BioEntity</class>
-		<class>com.simbaart.entity.BannerEntity</class>
+		<class>com.simbaart.entity.LinkEntity</class>
 	</persistence-unit>
 </persistence>

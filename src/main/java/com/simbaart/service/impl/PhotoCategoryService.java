@@ -52,4 +52,10 @@ public class PhotoCategoryService implements IPhotoCategoryService{
 		photoCategoryRepository.delete(id);
 	}
 
+	@Override
+	public PhotoCategoryDTO findOneByCode(String code) {
+		//return photoCategoryConverter.toDto(photoCategoryRepository.findOneByCode(code));
+		return null;
+	}
+
 }

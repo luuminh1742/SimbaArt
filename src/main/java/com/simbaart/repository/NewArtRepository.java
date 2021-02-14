@@ -9,4 +9,5 @@ import com.simbaart.entity.NewArtEntity;
 
 public interface NewArtRepository extends JpaRepository<NewArtEntity, Long>{
 	List<NewArtEntity> findAllByOrderByIdDesc(Pageable pageable);
+	List<NewArtEntity> findAllByStatus(boolean status);
 }

@@ -13,4 +13,7 @@ public interface IBlogPostsService {
 	int getTotalItem();
 	BlogPostsDTO save(BlogPostsDTO dto);
 	void delete(Long id);
+	
+	List<BlogPostsDTO> findAllByCategoryCode(String code,Pageable pageable);
+	int getTotalItemByCategoryCode(String code);
 }

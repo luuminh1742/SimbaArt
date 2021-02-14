@@ -4,13 +4,14 @@
     <!-- banner  -->
     <div class="banner-under">
 
-      <img src="http://placehold.it/930x180" alt="Los Angeles" class="centerBlock">
+      <img src='<c:url value="/images/${linkDTO.bannerBelow}"/>' alt="Los Angeles" class="centerBlock"
+      style="width:930px;height:180px;">
     </div>
     <!-- Footer -->
     <footer class="py-5">
       <div class="container">
         <p class="m-0 text-center text-white">&copy; 2021 Simba Art - ILLustration &copy;</p>
-        <p class="m-0 text-center text-white">Mobile : 0917.120.343</p>
+        <p class="m-0 text-center text-white">Mobile : ${linkDTO.phone}</p>
       </div>
       <!-- /.container -->
     </footer>

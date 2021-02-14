@@ -9,10 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Table(name = "blogposts")
@@ -30,19 +27,16 @@ public class BlogPostsEntity extends BaseEntity{
 	@Column(name = "content", columnDefinition = "TEXT")
 	private String content;
 	
-	@CreatedDate
 	@Column(name = "createddate")
+	@CreatedDate
 	private Timestamp createdDate;
 	
-	@CreatedBy
 	@Column(name = "createdby")
 	private String createdBy;
 	
-	@LastModifiedDate
 	@Column(name = "modifieddate")
 	private Timestamp modifiedDate;
 	
-	@LastModifiedBy
 	@Column(name = "modifiedby")
 	private String modifiedBy;
 	

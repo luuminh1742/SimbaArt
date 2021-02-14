@@ -3,6 +3,8 @@ package com.simbaart.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -35,12 +37,14 @@ public class ContactService implements IContactService{
 	}
 
 	@Override
+	@Transactional
 	public ContactDTO save(ContactDTO dto) {
 		return contactConverter.toDto(
 				contactRepository.save(contactConverter.toEntity(dto)));
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long[] ids) {
 		for(Long id:ids) {
 			contactRepository.delete(id);

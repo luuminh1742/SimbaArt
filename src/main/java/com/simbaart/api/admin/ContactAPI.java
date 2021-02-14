@@ -21,6 +21,6 @@ public class ContactAPI {
 	@DeleteMapping("/api/contact")
 	public ContactDTO deleteContact(@RequestBody ContactDTO dto) {
 		contactService.delete(dto.getIds());
-		return null;
+		return dto;
 	}
 }

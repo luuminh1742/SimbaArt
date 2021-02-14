@@ -21,7 +21,7 @@
 					class="img-circle elevation-2" alt="User Image">
 			</div>
 			<div class="info">
-				<a href='<c:url value=""/>' class="d-block">
+				<a href='<c:url value="/admin/account/profile"/>' class="d-block">
 				<%=SecurityUtils.getPrincipal().getFullName()%>
 				</a>
 			</div>
@@ -52,7 +52,7 @@
 					href='<c:url value="/admin/photo/posts/list?page=1"/>'
 					<c:if test="${checkSidebar == 2}"> class="nav-link active" </c:if>
 					<c:if test="${checkSidebar != 2}"> class="nav-link" </c:if>>
-						<i class="nav-icon far fa-image"></i>
+						<i class="nav-icon far fa-images"></i>
 						<p>Photo Posts</p>
 				</a></li>
 				<li class="nav-item"><a
@@ -66,7 +66,7 @@
 					href='<c:url value="/admin/blog/posts/list?page=1"/>'
 					<c:if test="${checkSidebar == 4}"> class="nav-link active" </c:if>
 					<c:if test="${checkSidebar != 4}"> class="nav-link" </c:if>>
-						<i class="nav-icon fas fa-book-open"></i>
+						<i class="nav-icon fas fa-newspaper"></i>
 						<p>Blog Posts</p>
 				</a></li>
 				<li class="nav-item"><a
@@ -80,28 +80,31 @@
 					href='<c:url value="/admin/newart/list?page=1"/>' 
 					<c:if test="${checkSidebar == 6}"> class="nav-link active" </c:if>
 					<c:if test="${checkSidebar != 6}"> class="nav-link" </c:if>>
-						<i class="nav-icon fas fa-table"></i>
+						<i class="nav-icon	far fa-newspaper"></i>
 						<p>New Art</p>
 				</a></li>
+				<li class="nav-item"><a
+					href='<c:url value="/admin/bio"/>' 
+					<c:if test="${checkSidebar == 7}"> class="nav-link active" </c:if>
+					<c:if test="${checkSidebar != 7}"> class="nav-link" </c:if>>
+						<i class="nav-icon fas fa-biohazard"></i>
+						<p>Bio</p>
+				</a></li>
+				
 				
 				<li class="nav-item"><a
 					href='<c:url value=""/>' 
-					<c:if test="${checkSidebar == 7}"> class="nav-link active" </c:if>
-					<c:if test="${checkSidebar != 7}"> class="nav-link" </c:if>>
-						<i class="nav-icon fas fa-table"></i>
-						<p>Banner</p>
-				</a></li>
-				
-				
-				<li class="nav-item"><a
-					href='<c:url value=""/>' class="nav-link">
+					<c:if test="${checkSidebar == 8}"> class="nav-link active" </c:if>
+					<c:if test="${checkSidebar != 8}"> class="nav-link" </c:if>>
 						<i class="nav-icon far fa-image"></i>
 						<p>Gallery</p>
 				</a></li>
 				
 				
 				<li class="nav-item"><a
-					href='<c:url value=""/>' class="nav-link">
+					href='<c:url value=""/>' 
+					<c:if test="${checkSidebar == 9}"> class="nav-link active" </c:if>
+					<c:if test="${checkSidebar != 9}"> class="nav-link" </c:if>>
 						<i class="nav-icon fas fa-user-alt"></i>
 						<p>
 							Account
@@ -110,21 +113,15 @@
 				</a>
 					<ul class="nav nav-treeview">
 		              <li class="nav-item">
-		                <a href="" class="nav-link">
+		                <a href='<c:url value="/admin/account/profile"/>' class="nav-link">
 		                  <i class="far fa-circle nav-icon"></i>
-		                  <p>General</p>
+		                  <p>Profile</p>
 		                </a>
 		              </li>
 		              <li class="nav-item">
-		                <a href='<c:url value="/admin/bio"/>' class="nav-link">
+		                <a href='<c:url value="/admin/account/link"/>' class="nav-link">
 		                  <i class="far fa-circle nav-icon"></i>
-		                  <p>Bio</p>
-		                </a>
-		              </li>
-		              <li class="nav-item">
-		                <a href="" class="nav-link">
-		                  <i class="far fa-circle nav-icon"></i>
-		                  <p>Setting</p>
+		                  <p>Link</p>
 		                </a>
 		              </li>
 		            </ul>

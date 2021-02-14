@@ -23,11 +23,17 @@
 
 <link href='<c:url value="/template/web/css/style-home.css"/>'
 	rel="stylesheet">
+<link href='<c:url value="/template/web/css/style-bio.css"/>'
+	rel="stylesheet">
+<link href='<c:url value="/template/web/css/style-blog.css"/>'
+	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href='<c:url value="/template/web/vendor/lightbox/css/style.css"/>'>
 <!--  phân trang  -->
-<script src="<c:url value='/template/web/vendor/jquery/jquery.min.js' />"></script>
-<script src="<c:url value='/template/web/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
+<script
+	src="<c:url value='/template/web/vendor/jquery/jquery.min.js' />"></script>
+<script
+	src="<c:url value='/template/web/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
 <script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>"></script>
 
 <style>
@@ -47,7 +53,7 @@ body {
 
 		<%@include file="/common/web/footer.jsp"%>
 	</div>
-	
+
 	<%-- <script src='<c:url value="/template/web/vendor/bootstrap/js/bootstrap.bundle.min.js"/>'></script> --%>
 
 	<%-- <script

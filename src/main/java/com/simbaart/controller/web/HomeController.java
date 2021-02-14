@@ -9,38 +9,49 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.simbaart.dto.PhotoCategoryDTO;
 import com.simbaart.dto.PhotoPostsDTO;
-import com.simbaart.service.IPhotoCategoryService;
 import com.simbaart.service.IPhotoPostsService;
 
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
 
 	@Autowired
-	private IPhotoCategoryService photoCategoryService;
-	@Autowired
 	private IPhotoPostsService photoPostsService;
+	@Autowired
+	private DisplayGeneral displayGeneral;
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView homePage(@RequestParam("page") int page) {
+	public ModelAndView showListBlogPage(@RequestParam(value = "code", required = false) String code,
+			@RequestParam("page") int page) {
 
 		ModelAndView mav = new ModelAndView("web/home");
+		
 		PhotoPostsDTO model = new PhotoPostsDTO();
 		model.setPage(page);
 		model.setLimit(30);
 		Pageable pageable = new PageRequest(page - 1, model.getLimit());
-		model.setListResult(photoPostsService.findAll(pageable));
-		model.setTotalItem(photoPostsService.getTotalItem());
-		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
+		if(code == null) {
+			model.setListResult(photoPostsService.findAll(pageable));
+			model.setTotalItem(photoPostsService.getTotalItem());
+			model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
+			mav.addObject("checkMenuCategoryDesign","0");
+		}else {
+			model.setListResult(photoPostsService.findAllByCategoryCode(code,pageable));
+			model.setTotalItem(photoPostsService.getTotalItemByCategoryCode(code));
+			model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
+			mav.addObject("checkMenuCategoryDesign",code);
+		}
+		
 		mav.addObject("model", model);
 
-		PhotoCategoryDTO photoCategoryDTO = new PhotoCategoryDTO();
-		photoCategoryDTO.setListResult(photoCategoryService.findAll());
-		mav.addObject("photoCategory", photoCategoryDTO);
+		
+		displayGeneral.show(mav);
+		// check menu selected
+		
+		mav.addObject("checkMenu",0);
+		
 		return mav;
 	}
-	
-	
+
 
 }

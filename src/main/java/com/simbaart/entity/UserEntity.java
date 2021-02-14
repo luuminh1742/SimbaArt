@@ -24,44 +24,8 @@ public class UserEntity extends BaseEntity{
 	@Column(name = "fullname")
 	private String fullName;
 	
-	@Column(name = "phone", columnDefinition = "char(15)")
-	private String phone;
-	
 	@Column
 	private String email;
-	
-	@Column
-	private String youtube;
-	
-	@Column
-	private String facebook;
-	
-	@Column
-	private String twitter;
-	
-	@Column
-	private String instagram;
-	
-	@Column
-	private String pinterest;
-	
-	@Column
-	private String shoppe;
-	
-	@Column
-	private String etsy;
-	
-	@Column
-	private String avatar;
-	
-	@Column
-	private String logo;
-	
-	@Column
-	private String bannerBelow;
-	
-	@Column
-	private String linkBanner;
 	
 	@Column
 	private boolean status;
@@ -92,47 +56,6 @@ public class UserEntity extends BaseEntity{
 		this.roles = roles;
 	}
 
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-
-	public String getLogo() {
-		return logo;
-	}
-
-	public void setLogo(String logo) {
-		this.logo = logo;
-	}
-
-	public String getBannerBelow() {
-		return bannerBelow;
-	}
-
-	public void setBannerBelow(String bannerBelow) {
-		this.bannerBelow = bannerBelow;
-	}
-
-	public String getLinkBanner() {
-		return linkBanner;
-	}
-
-	public void setLinkBanner(String linkBanner) {
-		this.linkBanner = linkBanner;
-	}
-
-	@Column(name = "biocontent", columnDefinition = "TEXT")
-	private String bioContent;
-	public String getBioContent() {
-		return bioContent;
-	}
-
-	public void setBioContent(String bioContent) {
-		this.bioContent = bioContent;
-	}
 
 	public String getUsername() {
 		return userName;
@@ -158,13 +81,6 @@ public class UserEntity extends BaseEntity{
 		this.fullName = fullName;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
 
 	public String getEmail() {
 		return email;
@@ -174,60 +90,5 @@ public class UserEntity extends BaseEntity{
 		this.email = email;
 	}
 
-	public String getYoutube() {
-		return youtube;
-	}
-
-	public void setYoutube(String youtube) {
-		this.youtube = youtube;
-	}
-
-	public String getFacebook() {
-		return facebook;
-	}
-
-	public void setFacebook(String facebook) {
-		this.facebook = facebook;
-	}
-
-	public String getTwitter() {
-		return twitter;
-	}
-
-	public void setTwitter(String twitter) {
-		this.twitter = twitter;
-	}
-
-	public String getInstagram() {
-		return instagram;
-	}
-
-	public void setInstagram(String instagram) {
-		this.instagram = instagram;
-	}
-
-	public String getPinterest() {
-		return pinterest;
-	}
-
-	public void setPinterest(String pinterest) {
-		this.pinterest = pinterest;
-	}
-
-	public String getShoppe() {
-		return shoppe;
-	}
-
-	public void setShoppe(String shoppe) {
-		this.shoppe = shoppe;
-	}
-
-	public String getEtsy() {
-		return etsy;
-	}
-
-	public void setEtsy(String etsy) {
-		this.etsy = etsy;
-	}
-
+	
 }

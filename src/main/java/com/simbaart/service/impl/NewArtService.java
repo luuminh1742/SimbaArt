@@ -3,6 +3,8 @@ package com.simbaart.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -41,6 +43,7 @@ public class NewArtService implements INewArtService{
 	}
 
 	@Override
+	@Transactional
 	public NewArtDTO save(NewArtDTO dto) {
 		NewArtEntity entity = new NewArtEntity();
 		if (dto.getId() != null) {
@@ -53,9 +56,19 @@ public class NewArtService implements INewArtService{
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long id) {
 		newArtRepository.delete(id);
 		
+	}
+
+	@Override
+	public List<NewArtDTO> findAllByStatus() {
+		List<NewArtDTO> result = new ArrayList<>();
+		newArtRepository.findAllByStatus(true).forEach(entity->{
+			result.add(newArtConverter.toDto(entity));
+		});
+		return result;
 	}
 
 }

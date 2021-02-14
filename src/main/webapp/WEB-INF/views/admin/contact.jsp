@@ -50,12 +50,12 @@
 								<th>Name</th>
 								<th>Email</th>
 								<th>Created Date</th>
+								<th>Manipulation</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="item" items="${model.listResult}">
-								<tr data-toggle="modal" data-target="#dialogShowMessage"
-								 onclick="clickShowMessage('${item.name}','${item.message}')">
+								<tr>
 									<td><input type="checkbox" id="checkbox_${item.id}"
 										value="${item.id}" class="checkAllItem"></td>
 									<td>${item.name}</td>
@@ -65,6 +65,14 @@
 										</address>
 									</td>
 									<td>${item.createdDate}</td>
+									<td>
+										<button type="button" data-toggle="modal" data-target="#dialogShowMessage"
+								 			onclick="clickShowMessage('${item.name}','${item.message}')"
+								 			class="btn btn-primary">
+											<i class="fas fa-eye bigger-110 purple"></i>
+											<span class="bigger-110">Details</span>
+										</button>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>

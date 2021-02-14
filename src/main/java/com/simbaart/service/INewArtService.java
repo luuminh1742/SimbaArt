@@ -13,4 +13,7 @@ public interface INewArtService {
 	int getTotalItem();
 	NewArtDTO save(NewArtDTO dto);
 	void delete(Long id);
+	
+	List<NewArtDTO> findAllByStatus();
+	
 }

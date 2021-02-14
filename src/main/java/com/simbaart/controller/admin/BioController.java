@@ -12,24 +12,32 @@ import com.simbaart.service.IBioService;
 
 @Controller(value = "bioControllerOfAdmin")
 public class BioController {
-	
+
 	@Autowired
 	private IBioService bioService;
-	
+
 	@RequestMapping(value = "/admin/bio", method = RequestMethod.GET)
-	   public ModelAndView showBio() {
-	      ModelAndView mav = new ModelAndView("admin/bio/infor");
-	      BioDTO model = new BioDTO();
-	      model = bioService.findOne();
-	      mav.addObject("model", model);
-	      return mav;
-	   }
+	public ModelAndView showBio() {
+		ModelAndView mav = new ModelAndView("admin/bio/infor");
+		BioDTO model = new BioDTO();
+		model = bioService.findOne();
+		mav.addObject("model", model);
+		
+		mav.addObject("checkSidebar",7);
+		return mav;
+	}
+
 	@RequestMapping(value = "/admin/bio/edit", method = RequestMethod.GET)
-	   public ModelAndView editBio(@RequestParam(value = "id", required = false) Long id) {
-	      ModelAndView mav = new ModelAndView("admin/bio/edit");
-	      BioDTO model = new BioDTO();
-	      model = bioService.findById(id);
-	      mav.addObject("model", model);
-	      return mav;
-	   }
+	public ModelAndView editBio(@RequestParam(value = "id", required = false) Long id) {
+		ModelAndView mav = new ModelAndView("admin/bio/edit");
+		BioDTO model = new BioDTO();
+		if (id != null) {
+			model = bioService.findById(id);
+		}
+		mav.addObject("model", model);
+		
+		
+		mav.addObject("checkSidebar",7);
+		return mav;
+	}
 }

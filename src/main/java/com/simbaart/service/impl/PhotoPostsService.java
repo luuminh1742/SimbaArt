@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.simbaart.converter.PhotoPostsConverter;
 import com.simbaart.dto.PhotoPostsDTO;
+import com.simbaart.entity.PhotoCategoryEntity;
 import com.simbaart.entity.PhotoPostsEntity;
 import com.simbaart.repository.PhotoCategoryRepository;
 import com.simbaart.repository.PhotoPostsRepository;
@@ -69,16 +70,20 @@ public class PhotoPostsService implements IPhotoPostsService{
 	}
 
 	@Override
-	public List<PhotoPostsDTO> findAllByCode(String code, Pageable pageable) {
-//		PhotoCategoryEntity photoCategoryEntity = photoCategoryRepository.findOneByCode(code);
-//		List<PhotoPostsEntity> entitis = photoPostsRepository.findAllByPhotocategoryidAndOrderByIdDesc(photoCategoryEntity.getId());
-//		List<PhotoPostsDTO> models = new ArrayList<>();
-//		for (PhotoPostsEntity photoPostsEntity : entitis) {
-//			PhotoPostsDTO photoPostsDTO = photoPostsConverter.toDto(photoPostsEntity);
-//			models.add(photoPostsDTO);
-//		}
-//		return models;
-		return null;
+	public List<PhotoPostsDTO> findAllByCategoryCode(String code, Pageable pageable) {
+		List<PhotoPostsDTO> models = new ArrayList<>();
+		PhotoCategoryEntity photoCategoryEntity = photoCategoryRepository.findOneByCode(code);
+		photoPostsRepository.findAllByPhotoCategoryEntityOrderByIdDesc(photoCategoryEntity,pageable).
+		forEach(entity->{
+			models.add(photoPostsConverter.toDto(entity));
+		});
+		return models;
+	}
+
+	@Override
+	public int getTotalItemByCategoryCode(String code) {
+		PhotoCategoryEntity photoCategoryEntity = photoCategoryRepository.findOneByCode(code);
+		return (int) photoPostsRepository.countByPhotoCategoryEntity(photoCategoryEntity);
 	}
 
 }

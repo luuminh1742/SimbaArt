@@ -5,5 +5,5 @@ import com.simbaart.dto.BioDTO;
 public interface IBioService {
 	BioDTO findOne();
 	BioDTO findById(Long id);
-	BioDTO update(BioDTO dto);
+	BioDTO save(BioDTO dto);
 }

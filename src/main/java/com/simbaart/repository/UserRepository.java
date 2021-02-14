@@ -7,4 +7,5 @@ import com.simbaart.entity.UserEntity;
 public interface UserRepository extends JpaRepository<UserEntity, Long>{
 	
 	UserEntity findOneByUserNameAndStatus(String name, boolean status);
+	
 }
