@@ -1,7 +1,9 @@
-<%@page import="com.simbaart.utils.SecurityUtils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
+<c:url var="APIUpdateInforUrl" value="/api/account/updateinfor" />
+<c:url var="APIUpdatePasswordUrl" value="/api/account/updatepassword" />
+<c:url var="LogoutUrl" value="/exit" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,8 +48,7 @@
 								</div>
 
 								<h3 class="profile-username text-center">
-									<%=SecurityUtils.getPrincipal().getFullName()%>
-								</h3>
+									${userDTO.fullName}</h3>
 
 								<a href='<c:url value="/exit"/>'
 									class="btn btn-primary btn-block"><b>Log out</b></a>
@@ -85,21 +86,15 @@
 												<tbody>
 													<tr>
 														<td>Username</td>
-														<td>
-															<%=SecurityUtils.getPrincipal().getUsername()%>
-														</td>
+														<td>${userDTO.username}</td>
 													</tr>
 													<tr>
 														<td>Full name</td>
-														<td>
-															<%=SecurityUtils.getPrincipal().getFullName()%>
-														</td>
+														<td>${userDTO.fullName}</td>
 													</tr>
 													<tr>
 														<td>Email</td>
-														<td>
-															
-														</td>
+														<td>${userDTO.email}</td>
 													</tr>
 												</tbody>
 											</table>
@@ -121,8 +116,9 @@
 
 												<div class="col-sm-12">
 													<div class="input-group">
-														<input class="form-control" type="text" name="username"
-															placeholder="Username" value="${USERMODEL.username}" />
+														<input class="form-control" type="text" name="userName"
+															id="userName" placeholder="Username"
+															value="${userDTO.username}" />
 													</div>
 												</div>
 											</div>
@@ -135,8 +131,8 @@
 
 												<div class="col-sm-12">
 													<div class="input-group">
-														<input class="form-control" type="text" name="fullName"
-															placeholder="Full name" value="${USERMODEL.fullName}" />
+														<input class="form-control" type="text" name="fullName" id="fullName"
+															placeholder="Full name" value="${userDTO.fullName}" />
 													</div>
 												</div>
 											</div>
@@ -147,8 +143,8 @@
 
 												<div class="col-sm-12">
 													<div class="input-group">
-														<input class="form-control" type="text" name="fullName"
-															placeholder="Email" value="${USERMODEL.fullName}" />
+														<input class="form-control" type="text" name="email"
+															id="email" placeholder="Email" value="${userDTO.email}" />
 													</div>
 												</div>
 											</div>
@@ -179,7 +175,16 @@
 
 
 											<div class="space-10"></div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label no-padding-right"
+													for="form-field-pass1">Old password</label>
 
+												<div class="col-sm-9">
+													<div class="input-group">
+														<input class="form-control" type="password" id="oldPassword" />
+													</div>
+												</div>
+											</div>
 											<div class="form-group">
 												<label class="col-sm-3 control-label no-padding-right"
 													for="form-field-pass1">New password</label>
@@ -233,5 +238,66 @@
 			<!-- /.container-fluid -->
 		</div>
 	</section>
+
+
+	<script>
+		$("#formGeneralInfor").submit(function(e) {
+			e.preventDefault();
+			var data = {};
+			data["id"] = ${userDTO.id};
+			data["username"] = $('#userName').val();
+			data["fullName"] = $('#fullName').val();
+			data["email"] = $('#email').val();
+			$.ajax({
+				url : '${APIUpdateInforUrl}',
+				type : 'PUT',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					window.location.href = "${LogoutUrl}";
+					alert("Update successfully");
+					//console.log(result);
+				},
+				error : function(error) {
+					alert("Update failed");
+					//console.log(error);
+				}
+			});
+		});
+		
+		
+		$("#formUpdatePassword").submit(function(e) {
+			e.preventDefault();
+			if($('#password').val() != $('#confirmPassword').val())
+			{
+				alert('Password incorrect');
+				return;
+			}
+				
+			var data = {};
+			data["id"] = ${userDTO.id};
+			data["oldPassword"] = $('#oldPassword').val();
+			data["password"] = $('#password').val();
+			$.ajax({
+				url : '${APIUpdatePasswordUrl}',
+				type : 'PUT',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					window.location.href = "${LogoutUrl}";
+					alert("Update successfully");
+					//console.log(result);
+				},
+				error : function(error) {
+					alert("Update failed");
+					//console.log(error);
+				}
+			});
+		});
+	</script>
+
+
 </body>
 </html>

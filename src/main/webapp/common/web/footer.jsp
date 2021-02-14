@@ -3,9 +3,11 @@
 <%@ include file="/common/taglib.jsp"%>
     <!-- banner  -->
     <div class="banner-under">
-
-      <img src='<c:url value="/images/${linkDTO.bannerBelow}"/>' alt="Los Angeles" class="centerBlock"
-      style="width:930px;height:180px;">
+		<a href="${linkDTO.linkBanner}" target="_blank">
+			<img src='<c:url value="/images/${linkDTO.bannerBelow}"/>' alt="Los Angeles" class="centerBlock"
+      		style="width:930px;height:180px;">
+		</a>
+      
     </div>
     <!-- Footer -->
     <footer class="py-5">

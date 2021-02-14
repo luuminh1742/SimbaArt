@@ -104,8 +104,15 @@
 
 		</div>
 		<div class="logo-center">
-			<img src='<c:url value="/template/web/icon/logo.png"/>'
-				class="centerBlock">
+			<c:if test="${empty linkDTO.logo}">
+				<img src='<c:url value="/template/web/icon/logo.png"/>'
+					class="centerBlock" width="200px" height="200px">
+			</c:if>
+			<c:if test="${not empty linkDTO.logo}">
+				<img src='<c:url value="/images/${linkDTO.logo}"/>'
+					class="centerBlock" width="200px" height="200px">
+			</c:if>
+			
 		</div>
 		<div class="menu-right">
 			<a href='<c:url value="/home?page=1"/>'

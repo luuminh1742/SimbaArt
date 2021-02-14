@@ -3,6 +3,7 @@ package com.simbaart.dto;
 public class UserDTO extends AbstractDTO<UserDTO> {
 	private String userName;
 	private String password;
+	private String oldPassword;
 	private String fullName;
 	private String email;
 	private Long roleId;
@@ -54,6 +55,14 @@ public class UserDTO extends AbstractDTO<UserDTO> {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
 	}
 
 }

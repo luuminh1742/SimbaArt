@@ -37,4 +37,22 @@ public class LinkAPI {
 		}
 		return linkService.save(dto);
 	}
+	
+	@PostMapping("/api/link/logo")
+	public LinkDTO createLogo(@RequestBody LinkDTO dto) {
+		if(!dto.getBase64().equals("")) {
+			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
+			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getLogo());
+		}
+		return linkService.saveLogo(dto);
+	}
+	
+	@PutMapping("/api/link/logo")
+	public LinkDTO updateLogo(@RequestBody LinkDTO dto) {
+		if(!dto.getBase64().equals("")) {
+			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
+			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getLogo());
+		}
+		return linkService.saveLogo(dto);
+	}
 }

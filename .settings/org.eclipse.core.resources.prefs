@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/simbaart/controller/admin/AccountController.java=UTF-8
 encoding//src/main/java/com/simbaart/controller/admin/ContactController.java=UTF-8
+encoding//src/main/java/com/simbaart/controller/admin/GalleryController.java=UTF-8
 encoding//src/main/java/com/simbaart/controller/admin/HomeController.java=UTF-8
 encoding//src/main/java/com/simbaart/controller/admin/NewArtController.java=UTF-8
 encoding//src/main/java/com/simbaart/utils/ConvertCodeUtil.java=UTF-8

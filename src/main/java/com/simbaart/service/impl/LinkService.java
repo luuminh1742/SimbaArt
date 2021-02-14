@@ -46,4 +46,14 @@ public class LinkService implements ILinkService{
 		return linkConverter.toDto(linkRepository.findOne(id));
 	}
 
+	@Override
+	public LinkDTO saveLogo(LinkDTO dto) {
+		LinkEntity linkEntity = new LinkEntity();
+		if(dto.getId() != null) {
+			linkEntity = linkRepository.findOne(dto.getId());
+		}
+		linkEntity.setLogo(dto.getLogo());
+		return linkConverter.toDto(linkRepository.save(linkEntity));
+	}
+
 }
