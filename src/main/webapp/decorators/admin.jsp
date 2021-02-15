@@ -36,9 +36,12 @@
 <!-- summernote -->
 <link rel="stylesheet"
 	href='<c:url value="/template/admin/plugins/summernote/summernote-bs4.min.css"/>'>
-
+<!-- Ekko Lightbox -->
+<link rel="stylesheet"
+	href='<c:url value="/template/admin/plugins/ekko-lightbox/ekko-lightbox.css"/>'>
 <script src='<c:url value="/template/admin/ajax/jquery.min.js"/>'></script>
-<script src="<c:url value='/template/ckeditor/video/dislogs/video.js' />"></script>
+<script
+	src="<c:url value='/template/ckeditor/video/dislogs/video.js' />"></script>
 <script src="<c:url value='/template/ckeditor/ckeditor.js' />"></script>
 <script src='<c:url value="/template/ckfinder/ckfinder.js"/>'></script>
 <!--  phân trang  -->
@@ -81,7 +84,8 @@
 	<!-- jQuery -->
 
 	<!-- jQuery UI 1.11.4 -->
-	<script src='<c:url value="/template/admin/plugins/jquery-ui/jquery-ui.min.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/plugins/jquery-ui/jquery-ui.min.js"/>'></script>
 	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 	<script>
 		$.widget.bridge('uibutton', $.ui.button)
@@ -92,20 +96,27 @@
 	<script
 		src='<c:url value="/template/admin/plugins/chart.js/Chart.min.js"/>'></script> --%>
 	<!-- Sparkline -->
-	<script src='<c:url value="/template/admin/plugins/sparklines/sparkline.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/plugins/sparklines/sparkline.js"/>'></script>
 	<!-- JQVMap -->
-	<script src='<c:url value="/template/admin/plugins/jqvmap/jquery.vmap.min.js"/>'></script>
-	<script src='<c:url value="/template/admin/plugins/jqvmap/maps/jquery.vmap.usa.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/plugins/jqvmap/jquery.vmap.min.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/plugins/jqvmap/maps/jquery.vmap.usa.js"/>'></script>
 	<!-- jQuery Knob Chart -->
-	<script src='<c:url value="/template/admin/plugins/jquery-knob/jquery.knob.min.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/plugins/jquery-knob/jquery.knob.min.js"/>'></script>
 	<!-- daterangepicker -->
-	<script src='<c:url value="/template/admin/plugins/moment/moment.min.js"/>'></script>
-	<script src='<c:url value="/template/admin/plugins/daterangepicker/daterangepicker.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/plugins/moment/moment.min.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/plugins/daterangepicker/daterangepicker.js"/>'></script>
 	<!-- Tempusdominus Bootstrap 4 -->
 	<script
 		src='<c:url value="/template/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"/>'></script>
 	<!-- Summernote -->
-	<script src='<c:url value="/template/admin/plugins/summernote/summernote-bs4.min.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/plugins/summernote/summernote-bs4.min.js"/>'></script>
 	<!-- overlayScrollbars -->
 	<script
 		src='<c:url value="/template/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"/>'></script>
@@ -114,6 +125,30 @@
 	<!-- AdminLTE for demo purposes -->
 	<script src='<c:url value="/template/admin/dist/js/demo.js"/>'></script>
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-	<script src='<c:url value="/template/admin/dist/js/pages/dashboard.js"/>'></script>
+	<script
+		src='<c:url value="/template/admin/dist/js/pages/dashboard.js"/>'></script>
+
+	<!-- Ekko Lightbox -->
+	<script
+		src='<c:url value="/template/admin/plugins/ekko-lightbox/ekko-lightbox.min.js"/>'></script>
+	<script>
+		$(function() {
+			$(document).on('click', '[data-toggle="lightbox"]',
+					function(event) {
+						event.preventDefault();
+						$(this).ekkoLightbox({
+							alwaysShowClose : true
+						});
+					});
+
+			$('.filter-container').filterizr({
+				gutterPixels : 3
+			});
+			$('.btn[data-filter]').on('click', function() {
+				$('.btn[data-filter]').removeClass('active');
+				$(this).addClass('active');
+			});
+		})
+	</script>
 </body>
 </html>

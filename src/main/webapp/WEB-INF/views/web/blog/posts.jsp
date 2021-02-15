@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@include file="/common/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,18 +60,12 @@
 			<div class="card my-4">
 				<h5 class="card-header">Categories</h5>
 				<div class="list-group">
-					<a href="#" class="list-group-item">Category 1</a> <a href="#"
-						class="list-group-item">Category 2</a> <a href="#"
-						class="list-group-item">Category 3</a>
-				</div>
-			</div>
+					<c:forEach var="item" items="${blogCategory.listResult}">
+						<a href='<c:url value="/blog/list?code=${item.code}&page=1"/>'
+							class="list-group-item">${item.name}</a>
+					</c:forEach>
 
-			<!-- Side Widget -->
-			<div class="card my-4">
-				<h5 class="card-header">Side Widget</h5>
-				<div class="card-body">You can put anything you want inside of
-					these side widgets. They are easy to use, and feature the new
-					Bootstrap 4 card containers!</div>
+				</div>
 			</div>
 
 		</div>

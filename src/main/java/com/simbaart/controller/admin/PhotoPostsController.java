@@ -30,10 +30,10 @@ public class PhotoPostsController {
 	
 	@RequestMapping(value = "/admin/photo/posts/list", method = RequestMethod.GET)
 	public ModelAndView showList(@RequestParam("page") int page) {
+		ModelAndView mav = new ModelAndView("admin/photo/posts/list");
 		PhotoPostsDTO model = new PhotoPostsDTO();
 		model.setPage(page);
 		model.setLimit(10);
-		ModelAndView mav = new ModelAndView("admin/photo/posts/list");
 		Pageable pageable = new PageRequest(page-1, model.getLimit());
 		model.setListResult(photoPostsService.findAll(pageable));
 		model.setTotalItem(photoPostsService.getTotalItem());
@@ -63,4 +63,8 @@ public class PhotoPostsController {
 		mav.addObject("checkSidebar",2);
 		return mav;
 	}
+	
+	
+	
+	
 }
