@@ -49,7 +49,7 @@
 			<form action="<c:url value='/blog/list'/>" id="formSubmit"
 				method="get" style="margin-top: 50px;">
 				<ul class="pagination" id="pagination"
-					style="margin: 0px auto !important; width: fit-content;"></ul>
+					style="margin: 0px auto !important; width: max-content;"></ul>
 				<input type="hidden" value="" id="page" name="page" />
 
 			</form>

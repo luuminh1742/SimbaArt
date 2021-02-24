@@ -51,7 +51,7 @@
 							<tr>
 								<th>Title</th>
 								<th>Image</th>
-								<th>Image name</th>
+								<!-- <th>Image name</th> -->
 								<th>Description</th>
 								<th>Created date</th>
 								<th>Manipulation</th>
@@ -62,8 +62,9 @@
 								<tr>
 									<td>${item.title}</td>
 									<td><img src='<c:url value="/images/${item.image}"/>'
-										width="100px" height="100px"></td>
-									<td>${item.image}</td>
+										style="max-height:100px">
+										</td>
+									<%-- <td>${item.image}</td> --%>
 									<td>${item.description}</td>
 									<td>${item.createdDate}</td>
 									<td><a

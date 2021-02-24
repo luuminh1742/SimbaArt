@@ -12,7 +12,7 @@ public class ReadAllFileNameInFolderUtil {
 
 		List<String> result = new ArrayList<>();
 
-		File[] files = new File("/usr/var/folder/" + folder).listFiles();
+		File[] files = new File("/usr/var/userfiles/" + folder).listFiles();
 		// If this pathname does not denote a directory, then listFiles() returns null.
 
 		if (files == null)

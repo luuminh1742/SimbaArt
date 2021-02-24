@@ -6,22 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title><dec:title default="Home" /></title>
-
+<link rel="icon" type="image/png" href='<c:url value="/template/web/icon/logo.ico"/>'/>
 <link
 	href='<c:url value="/template/web/vendor/bootstrap/css/bootstrap.min.css"/>'
 	rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
 
-<%-- <script src='<c:url value="/template/web/vendor/jquery/jquery.min.js"/>'></script> --%>
-<!-- Custom styles for this template -->
-<%-- <link href='<c:url value="/template/web/css/style-home.css"/>' rel="stylesheet">
-  <link href='<c:url value="/template/web/css/style-bio.css"/>' rel="stylesheet">
-  <link href='<c:url value="/template/web/css/style-blog.css"/>' rel="stylesheet"> --%>
-
 <link href='<c:url value="/template/web/css/style-home.css"/>'
+	rel="stylesheet">
+<link href='<c:url value="/template/web/css/style-social.css"/>'
 	rel="stylesheet">
 <link href='<c:url value="/template/web/css/style-bio.css"/>'
 	rel="stylesheet">
@@ -42,6 +38,8 @@ body {
 		url('<c:url value="/template/web/img/background-main.jpg"/>');
 }
 </style>
+
+
 </head>
 
 <body>
@@ -64,5 +62,9 @@ body {
 		src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	
+	
+	
 </body>
 </html>

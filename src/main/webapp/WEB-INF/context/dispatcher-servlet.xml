@@ -22,7 +22,6 @@
 
 	<context:component-scan
 		base-package="com.simbaart.controller,com.simbaart.api"/>
-
 	<mvc:annotation-driven/>
 
 	<bean
@@ -33,6 +32,8 @@
 		<property name="suffix" value=".jsp" />
 
 	</bean>
+	<mvc:resources mapping="/ckeditor/**" location="/ckeditor/" />
+	<mvc:resources mapping="/ckfinder/**" location="/ckfinder/" />
 	<mvc:resources mapping="/template/**" location="/template/" />
-	<mvc:resources mapping="/images/**" location="file:c://usr/var/folder/images/" />
+	<mvc:resources mapping="/images/**" location="file:c://usr/var/userfiles/images/" />
 </beans>

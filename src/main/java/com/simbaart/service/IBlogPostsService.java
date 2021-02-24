@@ -16,4 +16,7 @@ public interface IBlogPostsService {
 	
 	List<BlogPostsDTO> findAllByCategoryCode(String code,Pageable pageable);
 	int getTotalItemByCategoryCode(String code);
+	
+	List<BlogPostsDTO> findTop6();
+	
 }

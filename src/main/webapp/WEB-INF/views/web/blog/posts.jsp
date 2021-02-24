@@ -13,7 +13,7 @@
 		<!-- Blog Entries Column -->
 		<div class="col-md-8">
 
-			<div class="card mb-4" style="padding: 10px;">
+			<div class="card mb-4" style="padding: 10px 25px;">
 				<!-- Title -->
 				<h1 class="mt-4">${blogPosts.title}</h1>
 

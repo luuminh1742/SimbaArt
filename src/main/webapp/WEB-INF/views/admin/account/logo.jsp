@@ -40,7 +40,7 @@
 							<button type="button" data-toggle="modal"data-target="#dialog1">
 							Select my image</button>&nbsp;
 							<input type="file" id="image" name="image" style="max-width: inherit;"
-							accept="image/png, image/jpeg, image/jpg"  onchange="readURL(this);"/>
+							accept="image/png, image/jpeg, image/jpg, image/gif"  onchange="readURL(this);"/>
 						</div>
 					</div>
 					<c:if test="${not empty model.id}">

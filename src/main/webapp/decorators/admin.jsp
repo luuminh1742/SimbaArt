@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title><dec:title default="Home" /></title>
+
+<link rel="icon" type="image/png" href='<c:url value="/template/web/icon/logo.ico"/>'/>
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -39,11 +41,16 @@
 <!-- Ekko Lightbox -->
 <link rel="stylesheet"
 	href='<c:url value="/template/admin/plugins/ekko-lightbox/ekko-lightbox.css"/>'>
+	<!-- Theme style -->
+<link rel="stylesheet"
+	href='<c:url value="/template/admin/css/style.css"/>'>
 <script src='<c:url value="/template/admin/ajax/jquery.min.js"/>'></script>
 <script
 	src="<c:url value='/template/ckeditor/video/dislogs/video.js' />"></script>
-<script src="<c:url value='/template/ckeditor/ckeditor.js' />"></script>
-<script src='<c:url value="/template/ckfinder/ckfinder.js"/>'></script>
+	<!-- ckeditor -->
+<script src='<c:url value="/ckeditor/ckeditor.js" />'></script>
+<!-- ckfinder -->
+<script src='<c:url value="/ckfinder/ckfinder.js"/>'></script>
 <!--  phân trang  -->
 <script
 	src='<c:url value="/template/admin/plugins/jquery/jquery.min.js"/>'></script>
@@ -68,6 +75,7 @@
 		<div class="content-wrapper">
 			<dec:body />
 		</div>
+		
 		<!-- Content -->
 		<!-- footer -->
 		<%@ include file="/common/admin/footer.jsp"%>

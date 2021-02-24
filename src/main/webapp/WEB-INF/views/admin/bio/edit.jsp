@@ -73,22 +73,32 @@
 					</div>
 					<form:hidden path="id" id="id" />
 				</form:form>
-
 			</div>
 		</div>
 	</section>
 
-
-
-
+	
+	
 	<script>
+	
+		
+	
 		var editor = '';
 		$(document).ready(
-				function() {
-					editor = CKEDITOR.replace('content');
-					CKFinder.setupCKEditor(editor,
-							'<c:url value="/template/ckfinder/"/>')
-				});
+		function() {
+			editor = CKEDITOR.replace('content',{
+				'filebrowserBrowseUrl': '/ckfinder/ckfinder.html',
+			    'filebrowserImageBrowseUrl': '/ckfinder/ckfinder.html?Type=Images',
+			    'filebrowserImageUploadUrl':  '/ckfinder/core/connector/java/connector.java '});
+			CKFinder.setupCKEditor(editor,'/ckfinder/');
+			/* CKFinder.setupCKEditor(editor,{
+			'filebrowserBrowseUrl': '/ckfinder/ckfinder.html',
+		    'filebrowserImageBrowseUrl': '/ckfinder/ckfinder.html',
+		    'filebrowserImageUploadUrl':  '/ckfinder/core/connector/java/connector.java '
+			}); */
+			
+		
+		});
 
 		$('#btnUpdateBio').click(function(e) {
 			e.preventDefault();

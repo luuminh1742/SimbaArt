@@ -241,9 +241,19 @@
 
 
 	<script>
+	
+		function hasWhiteSpace(s) {
+		  return s.indexOf(' ') >= 0;
+		}
+		
 		$("#formGeneralInfor").submit(function(e) {
 			e.preventDefault();
 			var data = {};
+			if(hasWhiteSpace($('#userName').val()))
+			{
+				alert('Username must not have spaces.');
+				return;
+			}
 			data["id"] = ${userDTO.id};
 			data["username"] = $('#userName').val();
 			data["fullName"] = $('#fullName').val();

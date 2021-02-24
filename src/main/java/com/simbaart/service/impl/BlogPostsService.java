@@ -85,4 +85,13 @@ public class BlogPostsService implements IBlogPostsService{
 		return (int) blogPostsRepository.countByBlogCategoryEntity(blogCategoryEntity);
 	}
 
+	@Override
+	public List<BlogPostsDTO> findTop6() {
+		List<BlogPostsDTO> models = new ArrayList<>();
+		blogPostsRepository.findTop6ByOrderByCreatedDateDesc().forEach(entity->{
+			models.add(blogPostsConverter.toDto(entity));
+		});
+		return models;
+	}
+
 }

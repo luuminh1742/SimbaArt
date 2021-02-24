@@ -2,7 +2,7 @@
 /* style blog post */
 .blog-post{
    display: flex;
-   padding: 10px;
+   padding:10px;
 }
 
 .blog-post img{

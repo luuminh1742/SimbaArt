@@ -15,7 +15,6 @@ import com.simbaart.dto.PhotoCategoryDTO;
 import com.simbaart.dto.PhotoPostsDTO;
 import com.simbaart.service.IPhotoCategoryService;
 import com.simbaart.service.IPhotoPostsService;
-import com.simbaart.utils.ReadAllFileNameInFolderUtil;
 
 @Controller(value = "photoPostsControllerOfAdmin")
 public class PhotoPostsController {
@@ -24,8 +23,6 @@ public class PhotoPostsController {
 	private IPhotoCategoryService photoCategoryService;
 	@Autowired
 	private IPhotoPostsService photoPostsService;
-	@Autowired
-	private ReadAllFileNameInFolderUtil readFileName;
 	
 	
 	@RequestMapping(value = "/admin/photo/posts/list", method = RequestMethod.GET)
@@ -56,8 +53,6 @@ public class PhotoPostsController {
 
 		mav.addObject("photoCategories", photoCategories);
 		
-		List<String> listFileName = readFileName.results("images");
-		mav.addObject("listFileName", listFileName);
 		
 		
 		mav.addObject("checkSidebar",2);

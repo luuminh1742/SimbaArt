@@ -1,7 +1,5 @@
 package com.simbaart.controller.admin;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -13,14 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.simbaart.dto.NewArtDTO;
 import com.simbaart.service.INewArtService;
-import com.simbaart.utils.ReadAllFileNameInFolderUtil;
 
 @Controller(value = "newArtControllerOfAdmin")
 public class NewArtController {
 	@Autowired
 	private INewArtService newArtService;
-	@Autowired
-	private ReadAllFileNameInFolderUtil readFileName;
 
 	@RequestMapping(value = "/admin/newart/list", method = RequestMethod.GET)
 	public ModelAndView listNewArt(@RequestParam("page") int page) {
@@ -49,9 +44,6 @@ public class NewArtController {
 		}
 
 		mav.addObject("model", model);
-		
-		List<String> listFileName = readFileName.results("images");
-		mav.addObject("listFileName", listFileName);
 		// kiểm tra menu nằm ở đâu
 		mav.addObject("checkSidebar", 6);
 		return mav;

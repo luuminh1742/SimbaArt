@@ -15,7 +15,6 @@ import com.simbaart.dto.BlogCategoryDTO;
 import com.simbaart.dto.BlogPostsDTO;
 import com.simbaart.service.IBlogCategoryService;
 import com.simbaart.service.IBlogPostsService;
-import com.simbaart.utils.ReadAllFileNameInFolderUtil;
 
 @Controller(value = "blogPostsControllerOfAdmin")
 public class BlogPostsController {
@@ -24,8 +23,6 @@ public class BlogPostsController {
 	private IBlogCategoryService blogCategoryService;
 	@Autowired
 	private IBlogPostsService blogPostsService;
-	@Autowired
-	private ReadAllFileNameInFolderUtil readFileName;
 	
 	
 	@RequestMapping(value = "/admin/blog/posts/list", method = RequestMethod.GET)
@@ -55,9 +52,6 @@ public class BlogPostsController {
 		List<BlogCategoryDTO> blogCategories = blogCategoryService.findAll();
 
 		mav.addObject("blogCategories", blogCategories);
-		
-		List<String> listFileName = readFileName.results("images");
-		mav.addObject("listFileName", listFileName);
 		mav.addObject("checkSidebar",4);
 		return mav;
 	}

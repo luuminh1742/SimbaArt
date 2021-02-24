@@ -33,15 +33,32 @@
 			<div class="card card-outline card-primary" style="padding: 20px;">
 				<div class="row">
 					<c:forEach var="item" items="${listFileName}">
-						<div class="col-sm-2">
+						<div class="col-sm-2 align-self-center" 
+						style="
+							/* margin:5px 0px */;
+							padding:3px;
+							height:200px;">
+    						<div style="
+							border: 1px solid darkblue;
+    						border-radius: 5px;
+    						width:100%;
+    						height:100%;
+    						padding:5px; 
+    						background-color: ghostwhite;
+    						">
 							<a href='<c:url value="/images/${item}"/>'
 								data-toggle="lightbox" data-title="${item}"
 								data-gallery="gallery"> <img
 								src='<c:url value="/images/${item}"/>'
-								class="img-fluid mb-2" alt="white sample" />
+								class="img-fluid mb-2" alt="white sample" 
+								style="max-height:180px;
+								display: block;
+								margin: 0px auto;"/>
 							</a>
+							</div>
 						</div>
 					</c:forEach>
+					
 				</div>
 			
 				

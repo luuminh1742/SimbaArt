@@ -18,7 +18,7 @@ public class PhotoPostsEntity extends BaseEntity {
 	@Column(name = "image")
 	private String image;
 
-	@Column(name = "descriptopn")
+	@Column(name = "descriptopn",columnDefinition = "TEXT")
 	private String description;
 
 	@Column(name = "createddate")

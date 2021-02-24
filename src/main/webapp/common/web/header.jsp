@@ -106,11 +106,11 @@
 		<div class="logo-center">
 			<c:if test="${empty linkDTO.logo}">
 				<img src='<c:url value="/template/web/icon/logo.png"/>'
-					class="centerBlock" width="200px" height="200px">
+					class="centerBlock rounded-circle" width="200px" height="200px">
 			</c:if>
 			<c:if test="${not empty linkDTO.logo}">
 				<img src='<c:url value="/images/${linkDTO.logo}"/>'
-					class="centerBlock" width="200px" height="200px">
+					class="centerBlock rounded-circle" width="200px" height="200px">
 			</c:if>
 			
 		</div>

@@ -5,6 +5,7 @@
 <head>
     <title><dec:title default="Login" /></title>
     
+<link rel="icon" type="image/png" href='<c:url value="/template/web/icon/logo.ico"/>'/>
     <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->

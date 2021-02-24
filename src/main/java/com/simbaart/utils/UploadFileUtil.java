@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UploadFileUtil {
-	private final String root = "/usr/var/folder";
+	private final String root = "/usr/var/userfiles";
 	public void writeOrUpdateFile(byte[] bytes,String path) {
 		// Kiểm tra folder tồn tại hay chưa
 		File file = new File(StringUtils.substringBeforeLast(root+path, "/"));
