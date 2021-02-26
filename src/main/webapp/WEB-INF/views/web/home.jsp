@@ -121,7 +121,8 @@
 		<h4 class="text-light" style="margin-top: 20px;">Latest blog posts</h4>
 		<div class="row" style="margin-top: 10px;">
 			<c:forEach var="item" items="${blogPostsDto.listResult}">
-				<a class="col-6 text-light title-blog" style="">
+				<a href='<c:url value="/blog/posts?code=${item.id}"/>'
+				class="col-6 text-light title-blog" style="">
 					<i class="fa fa-star" style="color:#fb5231"></i>
 					${item.title}
 					
@@ -149,22 +150,19 @@
                         <a id="share-instagram" href="" target="_blank" class="fa fa-instagram social"></a>
                         <a id="share-fb" href="" target="_blank" class="fa fa-facebook social"></a>
                         <a id="share-twitter" href="" target="_blank" class="fa fa-twitter social"></a>
-                        <!-- <a href="#" class="fa fa-google social"></a> -->
-                        <a href="#" class="fa fa-pinterest social"></a>
+                        <a id="share-pinterest" href="#" target="_blank" class="fa fa-pinterest social"></a>
                         <a id="share-linkedin" href="" target="_blank" class="fa fa-linkedin social"></a>
-                        <a href="#" class="fa fa-reddit social"></a>
-                        <a href="#" class="fa fa-tumblr social"></a>
-                        <a href="#" class="fa fa-snapchat-ghost social"></a>
-                        <a href="#" class="fa fa-skype social"></a>
-                        <!-- <a href="#" class="fa fa-android social"></a> -->
-                        <a href="#" class="fa fa-dribbble social"></a>
-                        <a href="#" class="fa fa-vimeo social"></a>
-                        <a href="#" class="fa fa-vine social"></a>
-                        <a href="#" class="fa fa-foursquare social"></a>
-                        <a href="#" class="fa fa-stumbleupon social"></a>
-                        <a href="#" class="fa fa-flickr social"></a>
-                        <!-- <a href="#" class="fa fa-yahoo social"></a> -->
-                        <a href="#" class="fa fa-rss social"></a>
+                        <a id="share-reddit" href="#" target="_blank" class="fa fa-reddit social"></a>
+                        <a id="share-tumblr" href="#" target="_blank" class="fa fa-tumblr social"></a>
+                        <a id="share-snapchat" href="#" target="_blank" class="fa fa-snapchat-ghost social"></a>
+                        <a id="share-skype" href="#" target="_blank" class="fa fa-skype social"></a>
+                        <a id="share-dribbble" href="#" target="_blank" class="fa fa-dribbble social"></a>
+                        <a id="share-vimeo" href="#" target="_blank" class="fa fa-vimeo social"></a>
+                        <a id="share-vine" href="#" target="_blank" class="fa fa-vine social"></a>
+                        <a id="share-foursquare" href="#" target="_blank" class="fa fa-foursquare social"></a>
+                        <a id="share-stumbleupon" href="#" target="_blank" class="fa fa-stumbleupon social"></a>
+                        <a id="share-flickr" href="#" target="_blank" class="fa fa-flickr social"></a>
+                        <a id="share-rss" href="#" target="_blank" class="fa fa-rss social"></a>
                     </div>
 
                     <input id="show-link" type="text" value="this is link" style="width: 100%;
@@ -186,13 +184,19 @@
 		src='<c:url value="/template/web/vendor/lightbox/js/script.js"/>'></script>
 	<script>
 		function showModal(img){
-			var url = 'http://localhost:8080/images/'+img;
-			$("#myModal").modal();
+			var url = window.location.hostname+'/images/'+img;
+			
+			//$("#myModal").modal();
 			$("#show-link").val(url);
 			$("#share-fb").attr("href", "http://www.facebook.com/share.php?u="+url);
 			$("#share-twitter").attr("href", "https://twitter.com/share?url="+url);
 			$("#share-linkedin").attr("href", "http://www.linkedin.com/shareArticle?mini=true&amp;url="+url);
 			$("#share-instagram").attr("href", "https://instagram.com/share?url="+url);
+			$("#share-pinterest").attr("href", "http://pinterest.com/pin/create/button/?url="+url);
+			$("#share-reddit").attr("href", "https://www.reddit.com/submit?url="+url);
+			$("#share-tumblr").attr("href", "http://www.tumblr.com/share/link?url="+url);
+			$("#share-snapchat").attr("href", "https://www.reddit.com/submit?url="+url);
+			
 		}
 		
 		

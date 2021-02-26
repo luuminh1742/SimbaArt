@@ -31,12 +31,6 @@ public class ContactService implements IContactService{
 	}
 
 	@Override
-	public ContactDTO findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	@Transactional
 	public ContactDTO save(ContactDTO dto) {
 		return contactConverter.toDto(

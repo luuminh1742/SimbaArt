@@ -30,7 +30,7 @@
 		<!-- /.card-header -->
 		<div class="card-body">
 			<div class="card card-outline card-primary" style="padding: 20px;">
-				<div class="card-header">Noi dung</div>
+				<div class="card-header"></div>
 			</div>
 		</div>
 	</section>

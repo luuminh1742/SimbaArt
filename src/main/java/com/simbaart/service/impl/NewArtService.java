@@ -65,7 +65,7 @@ public class NewArtService implements INewArtService{
 	@Override
 	public List<NewArtDTO> findAllByStatus() {
 		List<NewArtDTO> result = new ArrayList<>();
-		newArtRepository.findAllByStatus(true).forEach(entity->{
+		newArtRepository.findAllByStatusOrderByIdDesc(true).forEach(entity->{
 			result.add(newArtConverter.toDto(entity));
 		});
 		return result;

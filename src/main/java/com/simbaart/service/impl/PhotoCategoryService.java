@@ -37,12 +37,10 @@ public class PhotoCategoryService implements IPhotoCategoryService{
 
 	@Override
 	public List<PhotoCategoryDTO> findAll() {
-		List<PhotoCategoryEntity> entitis = photoCategoryRepository.findAllByOrderByIdDesc();
 		List<PhotoCategoryDTO> models = new ArrayList<>();
-		for (PhotoCategoryEntity photoCategoryEntity : entitis) {
-			PhotoCategoryDTO photoCategoryDTO = photoCategoryConverter.toDto(photoCategoryEntity);
-			models.add(photoCategoryDTO);
-		}
+		photoCategoryRepository.findAllByOrderByIdDesc().forEach(entity->{
+			models.add(photoCategoryConverter.toDto(entity));
+		});
 		return models;
 	}
 
@@ -51,11 +49,4 @@ public class PhotoCategoryService implements IPhotoCategoryService{
 	public void delete(Long id) {
 		photoCategoryRepository.delete(id);
 	}
-
-	@Override
-	public PhotoCategoryDTO findOneByCode(String code) {
-		//return photoCategoryConverter.toDto(photoCategoryRepository.findOneByCode(code));
-		return null;
-	}
-
 }

@@ -110,8 +110,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label no-padding-right">Banner Below (recommended 930x180)</label>
 						<div class="col-sm-12">
-							<button type="button" data-toggle="modal" data-target="#dialogBanner">
-								Select my image</button>
+							<input type="button" id="btn" value="Browse Server" onclick="BrowseServer()">
 							&nbsp; <input type="file" id="bannerBelow" name="bannerBelow"
 								style="max-width: inherit;"
 								accept="image/png, image/jpeg, image/jpg"
@@ -143,8 +142,6 @@
 						</div>
 					</div>
 
-					
-
 					<br>
 					<div class="form-group">
 						<div class="col-sm-12">
@@ -160,81 +157,22 @@
 	</section>
 
 
-
-
-	<div class="modal fade" id="dialogBanner" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" style="width: 900px;">
-			<div class="modal-content" style="width: 900px;">
-
-				<div class="modal-header bg-light text-dark">
-					<h5 class="modal-title" id="title-modal">List Image</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-
-				<div class="modal-body" style="width: 900px;">
-					<div>
-						<c:forEach var="image" items="${listFileName}">
-							<button type="button" title='${image}'
-								onclick="clickChooseImageBanner('${image}')"
-								data-dismiss="modal">
-								<img src='<c:url value="/images/${image}"/>' width="110px"
-									height="100px">
-							</button>
-
-
-						</c:forEach>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="dialogLgo" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" style="width: 900px;">
-			<div class="modal-content" style="width: 900px;">
-
-				<div class="modal-header bg-light text-dark">
-					<h5 class="modal-title" id="title-modal">List Image</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-
-				<div class="modal-body" style="width: 900px;">
-					<div>
-						<c:forEach var="image" items="${listFileName}">
-							<button type="button" title='${image}'
-								onclick="clickChooseImageLogo('${image}')"
-								data-dismiss="modal">
-								<img src='<c:url value="/images/${image}"/>' width="110px"
-									height="100px">
-							</button>
-
-
-						</c:forEach>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 	<script>
+	function BrowseServer(){
+		var finder = new CKFinder();
+		finder.basePath="../";
+		finder.selectActionFunction = SetFileField;
+		finder.popup();
+	}
+	function SetFileField(fileUrl){
+		var filename = fileUrl.split('/').pop().split('?')[0].split('#')[0];
+		$('#img').val(filename);
+		$('#blahBanner').attr('src', fileUrl);
+	}/* 
 	function clickChooseImageBanner(img) {
 		$('#bannerBelow').val(img);
 		$('#blahBanner').attr('src', '<c:url value="/images/'+img+'"/>');
-	}
+	} */
 
 	function readURLBanner(input) {
 		if (input.files && input.files[0]) {

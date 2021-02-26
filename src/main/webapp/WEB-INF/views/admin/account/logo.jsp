@@ -37,8 +37,7 @@
 				<div class="form-group">
 						<label class="col-sm-3 control-label no-padding-right">Logo</label>
 						<div class="col-sm-9">
-							<button type="button" data-toggle="modal"data-target="#dialog1">
-							Select my image</button>&nbsp;
+							<input type="button" id="btn" value="Browse Server" onclick="BrowseServer()">&nbsp;
 							<input type="file" id="image" name="image" style="max-width: inherit;"
 							accept="image/png, image/jpeg, image/jpg, image/gif"  onchange="readURL(this);"/>
 						</div>
@@ -77,47 +76,18 @@
 		</div>
 	</section>
 	
-	<div class="modal fade" id="dialog1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" style="width: 900px;">
-			<div class="modal-content" style="width: 900px;">
-
-				<div class="modal-header bg-light text-dark">
-					<h5 class="modal-title" id="title-modal">List Image</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-
-				<div class="modal-body" style="width: 900px;">
-					<form id="formTestCategory">
-						<div>
-							<c:forEach var="image" items="${listFileName}">
-								<button type="button" title='${image}'
-								onclick="clickChooseImage('${image}')"
-								data-dismiss="modal">
-									<img src='<c:url value="/images/${image}"/>'
-										width="110px" height="100px">
-								</button>
-									
-									
-							</c:forEach>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-warning"
-								data-dismiss="modal">Cancel</button>
-							
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 	<script>
-	function clickChooseImage(img){
-		$('#img').val(img);
-		$('#blah').attr('src', '<c:url value="/images/'+img+'"/>');
+	function BrowseServer(){
+		var finder = new CKFinder();
+		finder.basePath="../";
+		finder.selectActionFunction = SetFileField;
+		finder.popup();
+	}
+	function SetFileField(fileUrl){
+		var filename = fileUrl.split('/').pop().split('?')[0].split('#')[0];
+		$('#img').val(filename);
+		$('#blah').attr('src', fileUrl);
 	}
 	function readURL(input) {
 	       if (input.files && input.files[0]) {

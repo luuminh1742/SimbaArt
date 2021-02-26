@@ -1,7 +1,5 @@
 package com.simbaart.controller.admin;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +11,11 @@ import com.simbaart.dto.LinkDTO;
 import com.simbaart.dto.UserDTO;
 import com.simbaart.service.ILinkService;
 import com.simbaart.service.IUserService;
-import com.simbaart.utils.ReadAllFileNameInFolderUtil;
 import com.simbaart.utils.SecurityUtils;
 
 @Controller(value = "accountControllerOfAdmin")
 public class AccountController {
 
-	@Autowired
-	private ReadAllFileNameInFolderUtil readFileName;
 	@Autowired
 	private ILinkService linkService;
 	@Autowired
@@ -51,10 +46,6 @@ public class AccountController {
 		
 		mav.addObject("model",model);
 		
-		
-		
-		List<String> listFileName = readFileName.results("images");
-		mav.addObject("listFileName", listFileName);
 		// kiểm tra menu nằm ở đâu
 		mav.addObject("checkSidebar", 9);
 		return mav;
@@ -70,10 +61,6 @@ public class AccountController {
 		 
 		mav.addObject("model",model);
 		
-		
-		
-		List<String> listFileName = readFileName.results("images");
-		mav.addObject("listFileName", listFileName);
 		// kiểm tra menu nằm ở đâu
 		mav.addObject("checkSidebar", 9);
 		return mav;
@@ -88,10 +75,6 @@ public class AccountController {
 		
 		mav.addObject("model",model);
 		
-		
-		
-		List<String> listFileName = readFileName.results("images");
-		mav.addObject("listFileName", listFileName);
 		// kiểm tra menu nằm ở đâu
 		mav.addObject("checkSidebar", 9);
 		return mav;
