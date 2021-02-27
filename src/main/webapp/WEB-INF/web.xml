@@ -76,15 +76,14 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ConnectorServlet</servlet-name>
-		<url-pattern> 
-			/ckfinder/core/connector/java/connector.java 
+		<url-pattern>
+			/ckfinder/core/connector/java/connector.java
 		</url-pattern>
 	</servlet-mapping>
 
 
 
 	<!-- end -->
-
 
 
 	<session-config>

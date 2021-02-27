@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2021 Lưu Bá Minh</strong>
+    <strong>Copyright &copy; 2021 Simba Art - ILLustration</strong>
   </footer>

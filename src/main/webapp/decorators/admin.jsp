@@ -53,8 +53,7 @@
     <!--  phân trang  -->
     <script
             src='<c:url value="/template/admin/plugins/jquery/jquery.min.js"/>'></script>
-    <script
-            src='<c:url value="/template/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"/>'></script>
+    <script src="<c:url value='/template/web/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
     <script src="<c:url value='/template/paging/jquery.twbsPagination.js'/>"></script>
 
 </head>
@@ -99,9 +98,6 @@
 </script>
 <!-- Bootstrap 4 -->
 
-<%-- <!-- ChartJS -->
-<script
-    src='<c:url value="/template/admin/plugins/chart.js/Chart.min.js"/>'></script> --%>
 <!-- Sparkline -->
 <script
         src='<c:url value="/template/admin/plugins/sparklines/sparkline.js"/>'></script>
@@ -129,12 +125,6 @@
         src='<c:url value="/template/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"/>'></script>
 <!-- AdminLTE App -->
 <script src='<c:url value="/template/admin/dist/js/adminlte.js"/>'></script>
-<!-- AdminLTE for demo purposes -->
-<script src='<c:url value="/template/admin/dist/js/demo.js"/>'></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script
-        src='<c:url value="/template/admin/dist/js/pages/dashboard.js"/>'></script>
-
 <!-- Ekko Lightbox -->
 <script
         src='<c:url value="/template/admin/plugins/ekko-lightbox/ekko-lightbox.min.js"/>'></script>

@@ -1,0 +1,27 @@
+/* style blog post */
+.blog-post {
+    display: flex;
+    padding: 10px;
+}
+.blog-post img {
+    width: 220px;
+    height: 132px;
+    margin-right: 10px;
+}
+.posts-content{
+    padding: 10px 50px;
+}
+@media only screen and (max-width: 768px) {
+
+    .blog-post {
+        flex-direction: column;
+    }
+
+    .blog-post > img {
+        width: 100% !important;
+        height: auto !important;
+    }
+    .posts-content{
+        padding: 10px 15px;
+    }
+}

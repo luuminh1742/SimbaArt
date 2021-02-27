@@ -4,7 +4,6 @@
     <!-- Any urls that are excluded will never be decorated by Sitemesh -->
     <excludes>
         <pattern>/api*</pattern>
-<!--        <pattern>/ckfinder/ckfinder.html*</pattern>-->
     </excludes>
     <decorator name="web" page="web.jsp">
 <!--        <pattern>/*</pattern>-->

@@ -1,0 +1,16 @@
+.bio-content{
+	padding:10px 50px;
+}
+
+
+
+@media only screen and (max-width : 768px){
+    .bio-content p iframe{
+        width: auto !important;
+    }
+
+	.bio-content{
+		padding:10px 0px !important;
+	}
+
+}
