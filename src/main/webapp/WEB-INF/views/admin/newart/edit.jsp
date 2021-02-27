@@ -165,10 +165,7 @@
 	
 	var editor = '';
 	$(document).ready(function () {
-		editor = CKEDITOR.replace('content',{
-			'filebrowserBrowseUrl': '/ckfinder/ckfinder.html',
-		    'filebrowserImageBrowseUrl': '/ckfinder/ckfinder.html?Type=Images',
-		    'filebrowserImageUploadUrl':  '/ckfinder/core/connector/java/connector.java '});
+		editor = CKEDITOR.replace('content');
 		CKFinder.setupCKEditor(editor,'/ckfinder/');
 	});
 	

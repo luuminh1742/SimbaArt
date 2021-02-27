@@ -8,35 +8,30 @@
 <title>Bio</title>
 </head>
 <body>
-	<!-- Content -->
+<!-- Content -->
 
-	<!-- Page Features -->
-	<div class="row">
+<!-- Page Features -->
+<div class="row" style="margin-bottom: 10px;">
 
-		<!-- bio -->
-		<div class="col-md-12">
+	<!-- bio -->
+	<div class="col-lg-12 col-md-12 col-sm-12 mb-12">
 
-			<div class="card mb-12">
-				<h2 style="margin: 20px;">Bio</h2>
-				<hr>
-				<div class="bio-content">
-					${model.content}
-				</div>
-
-
-
-
+		<div class="card col-lg-12 col-md-12 col-sm-12 mb-12">
+			<h2 style="margin: 20px;">Bio</h2>
+			<hr>
+			<div class="bio-content">
+				${model.content}
 			</div>
-
-
 
 
 		</div>
 
 
-
 	</div>
 
-	<!-- Content end -->
+
+</div>
+
+<!-- Content end -->
 </body>
 </html>

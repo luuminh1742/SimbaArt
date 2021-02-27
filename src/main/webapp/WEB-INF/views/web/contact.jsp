@@ -9,7 +9,7 @@
 <title>Contact</title>
 </head>
 <body>
-	<div class="row">
+	<div class="row" style="margin-bottom: 10px;">
 
 		<!-- contact -->
 		<div class="col-md-12">

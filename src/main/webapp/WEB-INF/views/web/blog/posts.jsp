@@ -13,30 +13,20 @@
 		<!-- Blog Entries Column -->
 		<div class="col-md-8">
 
-			<div class="card mb-4" style="padding: 10px 25px;">
+			<div class="card mb-4 posts-content">
 				<!-- Title -->
-				<h1 class="mt-4">${blogPosts.title}</h1>
-
+				<h3 class="mt-4">${blogPosts.title}</h3>
+				<hr>
+				<!-- Date/Time -->
+				<p>Posted on ${blogPosts.createdDate}</p>
 				<!-- Author -->
 				<p class="lead">
 					by <a href="#">${blogPosts.createdBy}</a>
 				</p>
-
 				<hr>
-
-				<!-- Date/Time -->
-				<p>Posted on ${blogPosts.createdDate}</p>
-
-				<hr>
-
 				${blogPosts.content}
-
 				<hr>
 			</div>
-
-
-
-
 		</div>
 
 		<!-- Sidebar Widgets Column -->

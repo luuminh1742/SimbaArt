@@ -12,8 +12,8 @@
     <!-- banner  -->
     <div class="banner-under">
 		<a href="${linkDTO.linkBanner}" target="_blank">
-			<img src='<c:url value="/images/${linkDTO.bannerBelow}"/>' alt="Los Angeles" class="centerBlock"
-      		style="width:930px;height:180px;">
+			<img src='<c:url value="/images/${linkDTO.bannerBelow}"/>' alt="Los Angeles"
+                 class="d-block w-100 img-responsive center-block mx-auto banner-bottom">
 		</a>
       
     </div>

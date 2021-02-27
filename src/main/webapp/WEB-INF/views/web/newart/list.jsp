@@ -8,7 +8,7 @@
 <title>New Art</title>
 </head>
 <body>
-<div class="row">
+<div class="row" style="margin-bottom: 10px;">
 
 		<!-- Blog Entries Column -->
 		<div class="col-md-12">

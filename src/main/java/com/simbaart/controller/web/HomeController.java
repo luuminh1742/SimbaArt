@@ -53,12 +53,10 @@ public class HomeController {
 		PhotoPostsDTO model2 = new PhotoPostsDTO();
 		PhotoPostsDTO model3 = new PhotoPostsDTO();
 		PhotoPostsDTO model4 = new PhotoPostsDTO();
-		PhotoPostsDTO model5 = new PhotoPostsDTO();
 		List<PhotoPostsDTO> listModel1 = new ArrayList<>();
 		List<PhotoPostsDTO> listModel2 = new ArrayList<>();
 		List<PhotoPostsDTO> listModel3 = new ArrayList<>();
 		List<PhotoPostsDTO> listModel4 = new ArrayList<>();
-		List<PhotoPostsDTO> listModel5 = new ArrayList<>();
 		int count = model.getListResult().size();
 		int i = -1;
 		while (count > i) {
@@ -74,22 +72,16 @@ public class HomeController {
 			if (i+1 >= count)
 				break;
 			listModel4.add(model.getListResult().get(++i));
-			if (i+1 >= count)
-				break;
-			listModel5.add(model.getListResult().get(++i));
-			//i++;
 		}
 		model1.setListResult(listModel1);
 		model2.setListResult(listModel2);
 		model3.setListResult(listModel3);
 		model4.setListResult(listModel4);
-		model5.setListResult(listModel5);
 		mav.addObject("model", model);
 		mav.addObject("model1", model1);
 		mav.addObject("model2", model2);
 		mav.addObject("model3", model3);
 		mav.addObject("model4", model4);
-		mav.addObject("model5", model5);
 
 		displayGeneral.show(mav);
 		// check menu selected

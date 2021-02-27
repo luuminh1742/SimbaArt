@@ -1,132 +1,149 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
-<!-- header -->
-<div>
-	<div id="slide-banner" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ul class="carousel-indicators">
-			<!-- <li data-target="#demo" data-slide-to="0" ></li> -->
-			<c:forEach var="item" items="${newArts.listResult}">
-				<li data-target="#demo" data-slide-to="${item.id}"
-				<c:if test="${activeBanner == item.id}"> class="active"</c:if>
-				></li>
-			</c:forEach>
-			
-			<!-- <li data-target="#demo" data-slide-to="2"></li> -->
-		</ul>
+         pageEncoding="UTF-8" %>
+<%@ include file="/common/taglib.jsp" %>
 
-		<!-- The slideshow -->
-		<div class="carousel-inner">
-			<!-- <div class="carousel-item active">
-				<img src="http://placehold.it/1024x320" alt="Los Angeles"
-					class="centerBlock">
-			</div> -->
-			<c:forEach var="item" items="${newArts.listResult}">
-				
-					<a href='<c:url value="/newart/posts?code=${item.id}"/>'
-						<c:if test="${activeBanner == item.id}"> class="carousel-item active"</c:if>
-						<c:if test="${activeBanner != item.id}"> class="carousel-item"</c:if>
-						>
-						<img src='<c:url value="/images/${item.banner}"/>' alt="Chicago"
-							class="centerBlock" width="1024px" height="320px">
-					</a>
-			</c:forEach>
-			
-			<!-- <div class="carousel-item">
-				<img src="http://placehold.it/1024x320" alt="New York"
-					class="centerBlock">
-			</div> -->
-		</div>
-
-		<!-- Left and right controls -->
-		<a class="carousel-control-prev" href="#slide-banner"
-			data-slide="prev"> <span class="carousel-control-prev-icon"></span>
-		</a> <a class="carousel-control-next" href="#slide-banner"
-			data-slide="next"> <span class="carousel-control-next-icon"></span>
-		</a>
-	</div>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <!-- banner new art -->
+    <ol class="carousel-indicators">
+        <c:forEach var="item" items="${newArts.listResult}">
+            <li data-target="#carouselExampleIndicators"
+                data-slide-to="${item.id}"
+                    <c:if test="${activeBanner == item.id}"> class="active"</c:if>></li>
+        </c:forEach>
+    </ol>
+    <div class="carousel-inner">
+        <c:forEach var="item" items="${newArts.listResult}">
+            <a href='<c:url value="/newart/posts?code=${item.id}"/>'
+                    <c:if test="${activeBanner == item.id}"> class="carousel-item active"</c:if>
+                    <c:if test="${activeBanner != item.id}"> class="carousel-item"</c:if>>
+                <img src='<c:url value="/images/${item.banner}"/>' alt="Banner"
+                     class="d-block w-100 img-responsive center-block mx-auto img-banner-top">
+            </a>
+        </c:forEach>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
+<!-- menu -->
+
+<nav class="navbar navbar-dark navbar-expand-md justify-content-between">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target=".dual-nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+                class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0 flex-column">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href='<c:url value="/home?page=1"/>'
+                        <c:if test="${checkMenu == 0}"> class="text-danger nav-link"</c:if>
+                        <c:if test="${checkMenu != 0}"> class="text-light nav-link"</c:if>>HOME</a>
+                </li>
+                <li class="nav-item"><a href='<c:url value="/bio"/>'
+                        <c:if test="${checkMenu == 1}"> class="text-danger nav-link"</c:if>
+                        <c:if test="${checkMenu != 1}"> class="text-light nav-link"</c:if>>BIO</a>
+                </li>
+                <li class="nav-item"><a
+                        href='<c:url value="/blog/list?page=1"/>'
+                        <c:if test="${checkMenu == 2}"> class="text-danger nav-link"</c:if>
+                        <c:if test="${checkMenu != 2}"> class="text-light nav-link"</c:if>>BLOG</a>
+                </li>
+                <li class="nav-item"><a href='<c:url value="/contact"/>'
+                        <c:if test="${checkMenu == 3}"> class="text-danger nav-link"</c:if>
+                        <c:if test="${checkMenu != 3}"> class="text-light nav-link"</c:if>>CONTACT</a>
+                </li>
+                <li class="nav-item"><a
+                        href='<c:url value="/newart/list?page=1"/>'
+                        <c:if test="${checkMenu == 4}"> class="text-danger nav-link"</c:if>
+                        <c:if test="${checkMenu != 4}"> class="text-light nav-link"</c:if>>NEW
+                    ART</a></li>
+
+            </ul>
+            <ul class="navbar-nav flex-row mb-2">
+                <li class="nav-item">
+                    <!--youtube-->
+                    <a class="nav-link" href="${linkDTO.youtube}" target="_blank">
+                        <img class="icon-social"
+                             src='<c:url value="/template/web/icon/youtube.png"/>'>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!--instagram-->
+                    <a class="nav-link" href="${linkDTO.youtube}" target="_blank">
+                        <img class="icon-social"
+                             src='<c:url value="/template/web/icon/insta.png"/>'>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!--twitter-->
+                    <a class="nav-link" href="${linkDTO.twitter}" target="_blank">
+                        <img class="icon-social"
+                             src='<c:url value="/template/web/icon/Twitter.png"/>'>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <!--facebook-->
+                    <a class="nav-link" href="${linkDTO.facebook}"
+                       target="_blank"> <img class="icon-social"
+                                             src='<c:url value="/template/web/icon/fb.png"/>'>
+                    </a>
+                </li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="${linkDTO.pinterest}" target="_blank"> <img
+                        class="icon-social"
+                        src='<c:url value="/template/web/icon/prin.png"/>'>
+                </a></li>
+                <li class="nav-item">
+                    <!--shop--> <a class="nav-link" href="${linkDTO.shoppe}"
+                                   target="_blank"> <img class="icon-social"
+                                                         src='<c:url value="/template/web/icon/shoppe.png"/>'>
+                </a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="${linkDTO.etsy}"
+                                        target="_blank"> <img class="icon-social"
+                                                              src='<c:url value="/template/web/icon/etsy.png"/>'>
+                </a></li>
+            </ul>
+        </div>
+        <a href="#"
+           class="navbar-brand mx-auto d-block text-center order-0 order-md-1 w-25 ">
+            <c:if test="${empty linkDTO.logo}">
+                <img class="img-responsive rounded mx-auto d-block rounded-circle"
+                     src='<c:url value="/template/web/icon/logo.png"/>' alt="logo">
+            </c:if> <c:if test="${not empty linkDTO.logo}">
+            <img class="img-responsive rounded mx-auto d-block rounded-circle"
+                 src='<c:url value="/images/${linkDTO.logo}"/>' alt="logo">
+        </c:if>
+        </a>
+        <div class="navbar-collapse collapse dual-nav w-50 order-2 ">
+            <ul
+                    class="nav navbar-nav ml-auto list-inline d-flex justify-content-center"
+                    style="padding: 0px 10px;">
+                <li class="nav-item"><a href='<c:url value="/home?page=1"/>'
+                        <c:if test="${checkMenuCategoryDesign.equals('0')}"> class="text-danger nav-link"</c:if>
+                        <c:if test="${!checkMenuCategoryDesign.equals('0')}"> class="text-light nav-link"</c:if>>ALL</a>
+                </li>
+                <c:forEach var="item" items="${photoCategory.listResult}">
+                    <li class="nav-item"><a
+                            href='<c:url value="/home?code=${item.code}&page=1"/>'
+                            <c:if test="${checkMenuCategoryDesign.equals(item.code)}"> class="text-danger nav-link"</c:if>
+                            <c:if test="${!checkMenuCategoryDesign.equals(item.code)}"> class="text-light nav-link"</c:if>>${item.name}</a>
+                    </li>
+                </c:forEach>
 
 
-<div class="centerBlock" style="padding: 5px;">
-	<div class="row text-light menu-left">
-		<div class="pull-right"
-			style="width: 40%; padding-top: 64px; padding-bottom: 64px; padding-left: 15px; padding-right: 15px;">
-			<div class="centerBlock menu-l-top">
-				<a href='<c:url value="/home?page=1"/>' 
-					<c:if test="${checkMenu == 0}"> class="text-danger"</c:if>
-					<c:if test="${checkMenu != 0}"> class="text-light"</c:if>
-				>HOME</a> | 
-				<a href='<c:url value="/bio"/>' 
-					<c:if test="${checkMenu == 1}"> class="text-danger"</c:if>
-					<c:if test="${checkMenu != 1}"> class="text-light"</c:if>
-					>BIO</a> | 
-				<a href='<c:url value="/blog/list?page=1"/>' 
-					<c:if test="${checkMenu == 2}"> class="text-danger"</c:if>
-					<c:if test="${checkMenu != 2}"> class="text-light"</c:if>
-				>BLOG</a> | 
-				<a href='<c:url value="/contact"/>'
-					<c:if test="${checkMenu == 3}"> class="text-danger"</c:if>
-					<c:if test="${checkMenu != 3}"> class="text-light"</c:if>
-				>CONTACT</a> | 
-				<a href='<c:url value="/newart/list?page=1"/>' 
-					<c:if test="${checkMenu == 4}"> class="text-danger"</c:if>
-					<c:if test="${checkMenu != 4}"> class="text-light"</c:if>
-				>NEW ART</a>
-			</div>
-			<div class="centerBlock" id="social-network">
-				<!--youtube-->
-				<a href="${linkDTO.youtube}" target="_blank"> <img
-					src='<c:url value="/template/web/icon/youtube.png"/>'>
-				</a>
-				<!--instagram-->
-				<a href="${linkDTO.youtube}" target="_blank"> <img
-					src='<c:url value="/template/web/icon/insta.png"/>'>
-				</a>
-				<!--twitter-->
-				<a href="${linkDTO.twitter}" target="_blank"> <img
-					src='<c:url value="/template/web/icon/Twitter.png"/>'>
-				</a>
-				<!--facebook-->
-				<a href="${linkDTO.facebook}" target="_blank"> <img
-					src='<c:url value="/template/web/icon/fb.png"/>'>
-				</a> <a href="${linkDTO.pinterest}" target="_blank"> <img
-					src='<c:url value="/template/web/icon/prin.png"/>'>
-				</a>
-				<!--shop-->
-				<a href="${linkDTO.shoppe}" target="_blank"> <img
-					src='<c:url value="/template/web/icon/shoppe.png"/>'>
-				</a> <a href="${linkDTO.etsy}" target="_blank"> <img
-					src='<c:url value="/template/web/icon/etsy.png"/>'>
-				</a>
-			</div>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-		</div>
-		<div class="logo-center">
-			<c:if test="${empty linkDTO.logo}">
-				<img src='<c:url value="/template/web/icon/logo.png"/>'
-					class="centerBlock rounded-circle" width="200px" height="200px">
-			</c:if>
-			<c:if test="${not empty linkDTO.logo}">
-				<img src='<c:url value="/images/${linkDTO.logo}"/>'
-					class="centerBlock rounded-circle" width="200px" height="200px">
-			</c:if>
-			
-		</div>
-		<div class="menu-right">
-			<a href='<c:url value="/home?page=1"/>'
-				<c:if test="${checkMenuCategoryDesign.equals('0')}"> class="text-danger"</c:if>
-				<c:if test="${!checkMenuCategoryDesign.equals('0')}"> class="text-light"</c:if>
-			>ALL</a>
-			<c:forEach var="item" items="${photoCategory.listResult}">
-					 | <a href='<c:url value="/home?code=${item.code}&page=1"/>'
-					<c:if test="${checkMenuCategoryDesign.equals(item.code)}"> class="text-danger"</c:if>
-					<c:if test="${!checkMenuCategoryDesign.equals(item.code)}"> class="text-light"</c:if>
-					>${item.name}</a>
-			</c:forEach>
-		</div>
-	</div>
-</div>
 
-<!-- .\header -->
+<!-- ./ menu -->
+
+<!-- ./header -->
