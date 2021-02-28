@@ -14,10 +14,10 @@
         <c:forEach var="item" items="${newArtDTO.listResult}">
             <!-- Blog Post -->
             <div class="card mb-4">
-                <div class="blog-post">
+                <div class="list-newart">
                     <img class="card-img-top"
                          src='<c:url value="/images/${item.banner }"/>'
-                         alt="Card image cap">
+                         alt="Card image cap" style="height: auto !important;">
                     <div>
                         <h2 class="card-title">${item.title}</h2>
                         <p class="card-text">${item.shortDescription }</p>

@@ -22,7 +22,9 @@
      <link href='<c:url value="/template/web/css/style-bio.css"/>'
         rel="stylesheet">
     <link href='<c:url value="/template/web/css/style-blog.css"/>'
-        rel="stylesheet">
+          rel="stylesheet">
+    <link href='<c:url value="/template/web/css/style-newart.css"/>'
+          rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href='<c:url value="/template/web/vendor/lightbox/css/style.css"/>'>
     <!--  phân trang  -->

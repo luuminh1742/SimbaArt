@@ -75,4 +75,6 @@ public class BlogController {
 		mav.addObject("blogCategory",blogCategoryDTO);
 	}
 
+
+
 }
