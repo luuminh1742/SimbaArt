@@ -9,14 +9,10 @@
 </head>
 <body>
 <div class="row">
-
     <!-- Blog Entries Column -->
     <div class="col-md-8">
-
         <c:forEach var="item" items="${blogPostsDTO.listResult}">
             <!-- Blog Post -->
-
-
             <div class="card mb-4">
                 <div class="blog-post">
                     <img class="card-img-top"
@@ -37,8 +33,6 @@
                 </div>
             </div>
         </c:forEach>
-
-
         <c:if test="${blogPostsDTO.listResult.size()  == 0}">
             <div class="card mb-4">
                 <h2>
@@ -109,8 +103,6 @@
             }
         });
     });
-
-
 </script>
 
 

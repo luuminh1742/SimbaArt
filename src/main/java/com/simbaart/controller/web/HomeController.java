@@ -3,6 +3,7 @@ package com.simbaart.controller.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.simbaart.utils.SortImageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +27,8 @@ public class HomeController {
 	private DisplayGeneral displayGeneral;
 	@Autowired
 	private IBlogPostsService blogPostsService;
+	@Autowired
+	private SortImageUtil sortImageUtil;
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView showListBlogPage(@RequestParam(value = "code", required = false) String code,
@@ -53,30 +56,7 @@ public class HomeController {
 		PhotoPostsDTO model2 = new PhotoPostsDTO();
 		PhotoPostsDTO model3 = new PhotoPostsDTO();
 		PhotoPostsDTO model4 = new PhotoPostsDTO();
-		List<PhotoPostsDTO> listModel1 = new ArrayList<>();
-		List<PhotoPostsDTO> listModel2 = new ArrayList<>();
-		List<PhotoPostsDTO> listModel3 = new ArrayList<>();
-		List<PhotoPostsDTO> listModel4 = new ArrayList<>();
-		int count = model.getListResult().size();
-		int i = -1;
-		while (count > i) {
-			if (i+1 >= count)
-				break;
-			listModel1.add(model.getListResult().get(++i));
-			if (i+1 >= count)
-				break;
-			listModel2.add(model.getListResult().get(++i));
-			if (i+1 >= count)
-				break;
-			listModel3.add(model.getListResult().get(++i));
-			if (i+1 >= count)
-				break;
-			listModel4.add(model.getListResult().get(++i));
-		}
-		model1.setListResult(listModel1);
-		model2.setListResult(listModel2);
-		model3.setListResult(listModel3);
-		model4.setListResult(listModel4);
+		sortImageUtil.sortImage(model,model1,model2,model3,model4);
 		mav.addObject("model", model);
 		mav.addObject("model1", model1);
 		mav.addObject("model2", model2);
