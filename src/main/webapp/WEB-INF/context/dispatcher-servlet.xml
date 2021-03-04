@@ -35,5 +35,5 @@
 	<mvc:resources mapping="/ckeditor/**" location="/ckeditor/" />
 	<mvc:resources mapping="/ckfinder/**" location="/ckfinder/" />
 	<mvc:resources mapping="/template/**" location="/template/" />
-	<mvc:resources mapping="/images/**" location="file:c://usr/var/userfiles/images/" />
+	<mvc:resources mapping="/images/**" location="/upload/images/" />
 </beans>

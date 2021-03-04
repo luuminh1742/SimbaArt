@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.simbaart.utils.ReadAllFileNameInFolderUtil;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller(value = "galleryControllerOfAdmin")
 public class GalleryController {
 
@@ -17,9 +19,10 @@ public class GalleryController {
 	private ReadAllFileNameInFolderUtil readFileName;
 
 	@RequestMapping(value = "/admin/gallery", method = RequestMethod.GET)
-	public ModelAndView galleryPage() {
+	public ModelAndView galleryPage(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView("admin/gallery");
-		List<String> listFileName = readFileName.results("images");
+		String root = req.getServletContext().getRealPath("/")+"/upload/images";
+		List<String> listFileName = readFileName.results(root);
 		mav.addObject("listFileName", listFileName);
 		// kiểm tra menu nằm ở đâu
 		mav.addObject("checkSidebar", 8);

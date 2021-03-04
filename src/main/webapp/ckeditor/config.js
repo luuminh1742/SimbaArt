@@ -10,7 +10,7 @@ CKEDITOR.editorConfig = function(config) {
 	 config.filebrowserBrowseUrl = 'http://localhost:8080//ckfinder/ckfinder.html';
 	 config.filebrowserImageBrowseUrl = 'http://localhost:8080//ckfinder/ckfinder.html?type=Images';
 	 config.filebrowserFlashBrowseUrl = 'http://localhost:8080//ckfinder/ckfinder.html?type=Flash';
-	 config.filebrowserUploadUrl = '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files&currentFolder=/archive/';
+	 /*config.filebrowserUploadUrl = '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files&currentFolder=/archive/';
 	 config.filebrowserImageUploadUrl = '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images&currentFolder=/cars/';
-	 config.filebrowserFlashUploadUrl = '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash';
+	 config.filebrowserFlashUploadUrl = '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash';*/
 };

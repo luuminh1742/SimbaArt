@@ -12,45 +12,53 @@ import com.simbaart.dto.LinkDTO;
 import com.simbaart.service.ILinkService;
 import com.simbaart.utils.UploadFileUtil;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController(value="linkAPIOfAdmin")
 public class LinkAPI {
 
 	@Autowired
 	private ILinkService linkService;
-	@Autowired
-	private UploadFileUtil uploadFileUtil;
 	
 	@PostMapping("/api/link")
-	public LinkDTO createLink(@RequestBody LinkDTO dto) {
+	public LinkDTO createLink(HttpServletRequest req, @RequestBody LinkDTO dto) {
 		if(!dto.getBase64().equals("")) {
 			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
+			String root = req.getServletContext().getRealPath("/");
+			UploadFileUtil uploadFileUtil = new UploadFileUtil(root);
 			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getBannerBelow());
 		}
 		return linkService.save(dto);
 	}
 	
 	@PutMapping("/api/link")
-	public LinkDTO updateLink(@RequestBody LinkDTO dto) {
+	public LinkDTO updateLink(HttpServletRequest req,@RequestBody LinkDTO dto) {
 		if(!dto.getBase64().equals("")) {
 			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
+			String root = req.getServletContext().getRealPath("/");
+			UploadFileUtil uploadFileUtil = new UploadFileUtil(root);
 			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getBannerBelow());
 		}
 		return linkService.save(dto);
 	}
 	
 	@PostMapping("/api/link/logo")
-	public LinkDTO createLogo(@RequestBody LinkDTO dto) {
+	public LinkDTO createLogo(HttpServletRequest req,@RequestBody LinkDTO dto) {
 		if(!dto.getBase64().equals("")) {
 			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
+			String root = req.getServletContext().getRealPath("/");
+			UploadFileUtil uploadFileUtil = new UploadFileUtil(root);
 			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getLogo());
 		}
 		return linkService.saveLogo(dto);
 	}
 	
 	@PutMapping("/api/link/logo")
-	public LinkDTO updateLogo(@RequestBody LinkDTO dto) {
+	public LinkDTO updateLogo(HttpServletRequest req,@RequestBody LinkDTO dto) {
 		if(!dto.getBase64().equals("")) {
 			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
+			String root = req.getServletContext().getRealPath("/");
+			UploadFileUtil uploadFileUtil = new UploadFileUtil(root);
 			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getLogo());
 		}
 		return linkService.saveLogo(dto);

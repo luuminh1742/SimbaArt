@@ -18,6 +18,8 @@ import com.simbaart.dto.PhotoPostsDTO;
 import com.simbaart.service.IBlogPostsService;
 import com.simbaart.service.IPhotoPostsService;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
 
@@ -31,8 +33,8 @@ public class HomeController {
 	private SortImageUtil sortImageUtil;
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView showListBlogPage(@RequestParam(value = "code", required = false) String code,
-			@RequestParam("page") int page) {
+	public ModelAndView showListBlogPage(HttpServletRequest req,@RequestParam(value = "code", required = false) String code,
+										 @RequestParam("page") int page) {
 
 		ModelAndView mav = new ModelAndView("web/home");
 
@@ -56,7 +58,8 @@ public class HomeController {
 		PhotoPostsDTO model2 = new PhotoPostsDTO();
 		PhotoPostsDTO model3 = new PhotoPostsDTO();
 		PhotoPostsDTO model4 = new PhotoPostsDTO();
-		sortImageUtil.sortImage(model,model1,model2,model3,model4);
+		String root ="http://localhost:8080/images/";
+		sortImageUtil.sortImage(root,model,model1,model2,model3,model4);
 		mav.addObject("model", model);
 		mav.addObject("model1", model1);
 		mav.addObject("model2", model2);

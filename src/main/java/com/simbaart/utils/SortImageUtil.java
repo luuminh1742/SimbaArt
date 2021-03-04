@@ -4,7 +4,9 @@ import com.simbaart.dto.PhotoPostsDTO;
 import org.springframework.stereotype.Component;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class SortImageUtil {
      * @param model3 DÙng để lưu trữ các ảnh ở cột 3
      * @param model4 DÙng để lưu trữ các ảnh ở cột 4
      */
-    public void sortImage(PhotoPostsDTO model, PhotoPostsDTO model1,
+    public void sortImage(String root,PhotoPostsDTO model, PhotoPostsDTO model1,
                           PhotoPostsDTO model2, PhotoPostsDTO model3, PhotoPostsDTO model4) {
 
         int count = model.getListResult().size();
@@ -54,7 +56,7 @@ public class SortImageUtil {
                         .getAsInt();
 
             PhotoPostsDTO photoPostsDTO = model.getListResult().get(i);
-            StringBuilder url = new StringBuilder("http://localhost:8080/images/");
+            StringBuilder url = new StringBuilder(root);
             url.append(photoPostsDTO.getImage());
             switch (minIdx){
                 case 0:
@@ -91,6 +93,7 @@ public class SortImageUtil {
         try {
             URL url = new URL(urlLink);
             BufferedImage image = ImageIO.read(url);
+            /*BufferedImage image = ImageIO.read(new File(urlLink));*/
             int height = image.getHeight();
             float temp = image.getWidth() / (float)281;// tỷ lệ của ảnh
             return height/temp;

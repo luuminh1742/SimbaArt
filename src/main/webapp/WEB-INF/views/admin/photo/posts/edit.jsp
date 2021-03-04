@@ -154,7 +154,8 @@
     function SetFileField(fileUrl) {
         var filename = fileUrl.split('/').pop().split('?')[0].split('#')[0];
         $('#img').val(filename);
-        $('#blah').attr('src', fileUrl);
+        $('#blah').attr('src', "<c:url value='/images/"+filename+"'/>");
+
     }
 
     function readURL(input) {

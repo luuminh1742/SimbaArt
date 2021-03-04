@@ -13,26 +13,30 @@ import com.simbaart.dto.PhotoPostsDTO;
 import com.simbaart.service.IPhotoPostsService;
 import com.simbaart.utils.UploadFileUtil;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController(value = "photoPostsAPIOfAdmin")
 public class PhotoPostsAPI {
 	@Autowired
 	private IPhotoPostsService photoPostsService;
-	@Autowired
-	private UploadFileUtil uploadFileUtil;
 	
 	@PostMapping("/api/photo/editposts")
-	public PhotoPostsDTO createPhotoPosts(@RequestBody PhotoPostsDTO dto) {
+	public PhotoPostsDTO createPhotoPosts(HttpServletRequest req, @RequestBody PhotoPostsDTO dto) {
 		if(!dto.getBase64().equals("")) {
 			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
+			String root = req.getServletContext().getRealPath("/");
+			UploadFileUtil uploadFileUtil = new UploadFileUtil(root);
 			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getImage());
 		}
 		return photoPostsService.save(dto);
 	}
 	
 	@PutMapping("/api/photo/editposts")
-	public PhotoPostsDTO updatePhotoPosts(@RequestBody PhotoPostsDTO dto) {
+	public PhotoPostsDTO updatePhotoPosts(HttpServletRequest req,@RequestBody PhotoPostsDTO dto) {
 		if(!dto.getBase64().equals("")) {
 			byte[] decodeBase64 = Base64.getDecoder().decode(dto.getBase64().split(",")[1].getBytes());
+			String root = req.getServletContext().getRealPath("/");
+			UploadFileUtil uploadFileUtil = new UploadFileUtil(root);
 			uploadFileUtil.writeOrUpdateFile(decodeBase64, "/images/"+dto.getImage());
 		}
 		return photoPostsService.save(dto);
